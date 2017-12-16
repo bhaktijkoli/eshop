@@ -1,0 +1,49 @@
+@import "css/bootstrap";
+@import "css/font-awesome";
+@import "material-kit";
+
+
+// CSS
+@import "css/select2";
+@import "css/select2-bootstrap";
+
+
+@import "main";
+
+// BANNER
+.banner {
+  background: url('img/banner.jpg') center center no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+.banner-search {
+  margin-top: 300px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background-color: #fefefe30;
+}
+.banner-search .form-group {
+  margin-bottom: 0px;
+}
+.banner-search .form-group {
+  margin-bottom: 0px;
+}
+.banner-search .btn {
+  margin: 0px;
+  height: 44px;
+  width: 100%;
+}
+.banner .select2-container {
+  width: 100% !important;
+}
+.nomargin {
+  padding: 0px 5px 0px 5px !important;
+
+}
+@media only screen and (max-width: 768px) {
+  .banner-search .form-group {
+    margin-bottom: 10px;
+  }
+}
