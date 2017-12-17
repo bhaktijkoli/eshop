@@ -13,6 +13,7 @@
 
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
+Route::view('/login', 'index');
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
 

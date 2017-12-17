@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Header from './Header/Header.jsx';
 import Home from './Home/Home.jsx';
 import NewAd from './NewAd/NewAd.jsx';
+import Login from './Login/Login.jsx';
 
 import Spinner from './Spinner.jsx';
 
@@ -29,6 +30,7 @@ class Layout extends Component {
           <Header/>
           <Route exact path="/" component={Home}/>
           <Route exact path="/new-ad" component={NewAd}/>
+          <Route exact path="/login" component={Login}/>
         </div>
       )
     }
