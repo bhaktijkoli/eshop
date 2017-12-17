@@ -16913,7 +16913,7 @@ h2.title {
           box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075);
   color: #444;
   display: block;
-  height: 50px;
+  height: 34;
   padding: 15px 10px;
   width: 100%;
 }
@@ -16922,6 +16922,18 @@ h2.title {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-color: #9c27b0;
+}
+
+.checkbox label {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.select2-container {
+  width: 100% !important;
+}
+
+.list {
+  padding-left: 5px;
 }
 
 .z-depth {
@@ -16952,6 +16964,29 @@ h2.title {
 .z-depth-5 {
   -webkit-box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 20px 14px rgba(0, 0, 0, 0.22);
           box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 20px 14px rgba(0, 0, 0, 0.22);
+}
+
+body {
+  background-color: #FAFAFA;
+}
+
+.content-wrapper {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.card {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-size: 1.17em;
+}
+
+.card-body {
+  padding-bottom: 20px;
 }
 
 .banner {
@@ -16995,5 +17030,41 @@ h2.title {
   .banner-search .form-group {
     margin-bottom: 10px;
   }
+}
+
+.image-upload-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.image-upload-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.image-upload-input-title {
+  margin-left: 2px;
+}
+
+.image-upload .btn {
+  margin: 0px;
+  padding-bottom: 2px;
+  height: 34px;
+}
+
+.image-upload .btn .fa {
+  top: -3px !important;
+  margin-top: 0px !important;
 }
 

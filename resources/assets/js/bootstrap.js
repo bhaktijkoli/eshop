@@ -20,3 +20,5 @@ require('./scripts/bootstrap.js');
 require('./scripts/material.min.js');
 require('./scripts/material-kit.js');
 require('./scripts/select2.full');
+require('./scripts/formhandler');
+require('./scripts/jquery.validate');

@@ -10,6 +10,31 @@
 
 @import "main";
 
+
+
+// LAYOUT
+body {
+  background-color: #FAFAFA;
+}
+.content-wrapper {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+// CARD
+.card {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.card-title {
+  text-transform: uppercase;
+  font-size: 1.17em;
+}
+.card-body {
+  // padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 // BANNER
 .banner {
   background: url('img/banner.jpg') center center no-repeat;
@@ -46,4 +71,38 @@
   .banner-search .form-group {
     margin-bottom: 10px;
   }
+}
+
+
+// UPLOAD IMAGE
+.image-upload-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.image-upload-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-upload-input-title {
+  margin-left:2px;
+}
+.image-upload .btn {
+  margin: 0px;
+  padding-bottom: 2px;
+  height: 34px;
+}
+.image-upload .btn .fa{
+  top: -3px !important;
+  margin-top: 0px !important;
 }

@@ -28,7 +28,7 @@ class Header extends Component {
                 <li ><Link to="/pricing">Pricing</Link></li>
               </ul>
               <ul className="nav navbar-nav pull-right">
-                <li ><a className="btn btn-primary"><i className="fa fa-edit"></i>&nbsp;&nbsp;Post</a></li>
+                <li ><Link to="/new-ad" className="btn btn-primary"><i className="fa fa-edit"></i>&nbsp;&nbsp;Post</Link></li>
                 <li ><a className="btn btn-primary"><i className="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
               </ul>
             </div>

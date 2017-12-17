@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 
 import Header from './Header/Header.jsx';
 import Home from './Home/Home.jsx';
-// import NewAd from './NewAd/NewAd.jsx';
+import NewAd from './NewAd/NewAd.jsx';
 
 import {getAuthUser} from '../actions/authActions'
 import {getCategories} from '../actions/categoryActions'
@@ -20,7 +20,7 @@ class Layout extends Component {
       <div className="wrapper">
         <Header/>
         <Route exact path="/" component={Home}/>
-        {/* <Route exact path="/new-ad" component={NewAd}/> */}
+        <Route exact path="/new-ad" component={NewAd}/>
       </div>
     );
   }
