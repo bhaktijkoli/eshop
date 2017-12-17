@@ -14,6 +14,7 @@
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
 Route::view('/login', 'index');
+Route::view('/register', 'index');
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
 
@@ -22,6 +23,8 @@ Route::prefix('api')->group(function () {
     Route::get('get/categories','ItemController@getCategories');
     Route::post('/items/add','ItemController@add');
     Route::get('/items/get','ItemController@get');
+
+    Route::post('/user/register','Auth\RegisterController@register');
 });
 
 Route::get('/loginv/dev', function() {
