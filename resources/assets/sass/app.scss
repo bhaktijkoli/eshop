@@ -35,6 +35,31 @@ body {
   padding-bottom: 20px;
 }
 
+// NAVBAR
+.navbar .navbar-nav .profile-photo {
+  padding: 0;
+}
+
+.navbar .navbar-nav .profile-photo .profile-photo-small {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar .navbar-nav .profile-photo .profile-photo-text {
+  margin-left: 40px;
+  position: absolute;
+  top: 20px;
+}
+.navbar-transparent .btn {
+  // background-color: rgba(255, 255, 255, 0.1) !important;
+  // border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+// .navbar-transparent .btn:hover {
+//   background-color: $brand-primary !important;
+// }
+
 // BANNER
 .banner {
   background: url('img/banner.jpg') center center no-repeat;

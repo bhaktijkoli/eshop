@@ -16989,6 +16989,26 @@ body {
   padding-bottom: 20px;
 }
 
+.navbar .navbar-nav .profile-photo {
+  padding: 0;
+}
+
+.navbar .navbar-nav .profile-photo .profile-photo-small {
+  height: 40px;
+  width: 40px;
+}
+
+.navbar .navbar-nav .profile-photo .profile-photo-text {
+  margin-left: 40px;
+  position: absolute;
+  top: 20px;
+}
+
+.navbar-transparent .btn {
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+}
+
 .banner {
   background: url(/images/banner.jpg?3b549ec3b8129290bb92c53f36923d45) center center no-repeat;
   background-size: cover;
