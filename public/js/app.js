@@ -51410,9 +51410,10 @@ function mapStateToProps(state) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UploadImage__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__QuickSellTips__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UploadImage__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__QuickSellTips__ = __webpack_require__(126);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51427,17 +51428,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
+var comp = null;
+
 var FormNewAd = function (_Component) {
   _inherits(FormNewAd, _Component);
 
   function FormNewAd(props) {
     _classCallCheck(this, FormNewAd);
 
-    return _possibleConstructorReturn(this, (FormNewAd.__proto__ || Object.getPrototypeOf(FormNewAd)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (FormNewAd.__proto__ || Object.getPrototypeOf(FormNewAd)).call(this, props));
+
+    comp = _this;
+    return _this;
   }
 
   _createClass(FormNewAd, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {
       $('#category').select2({
         theme: "bootstrap"
@@ -51445,199 +51452,199 @@ var FormNewAd = function (_Component) {
       this.callValidate();
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var auth = this.props.auth;
       var categories = this.props.category.categories;
       var categoryLsit = categories.map(function (category) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "option",
+          'option',
           { value: category.id, key: category.id },
           category.name
         );
       });
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { className: "card" },
+        'div',
+        { className: 'card' },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "card-heading" },
+          'div',
+          { className: 'card-heading' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "h3",
-            { className: "card-title" },
-            "Post an ad"
+            'h3',
+            { className: 'card-title' },
+            'Post an ad'
           ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("hr", null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
-          { className: "card-body" },
+          'div',
+          { className: 'card-body' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "row" },
+            'div',
+            { className: 'row' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "form",
-              { id: "form_additem", encType: "multipart/form-data" },
+              'form',
+              { id: 'form_additem', encType: 'multipart/form-data' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
-                "Add information about your item below. Your ad will not appear in search results until this information has been verified and approved by our moderators.",
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null)
+                'div',
+                { className: 'col-sm-10' },
+                'Add information about your item below. Your ad will not appear in search results until this information has been verified and approved by our moderators.',
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null)
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group label-floating" },
+                  'div',
+                  { className: 'form-group label-floating' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "label",
-                    { className: "control-label", htmlFor: "title" },
-                    "Ad title"
+                    'label',
+                    { className: 'control-label', htmlFor: 'title' },
+                    'Ad title'
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", className: "form-control", id: "title", name: "title" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', className: 'form-control', id: 'title', name: 'title' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "p",
-                    { className: "help-block" },
-                    "Write a suitable title for your ad."
+                    'p',
+                    { className: 'help-block' },
+                    'Write a suitable title for your ad.'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group label-floating" },
+                  'div',
+                  { className: 'form-group label-floating' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "label",
-                    { className: "control-label", htmlFor: "description" },
-                    "Ad description"
+                    'label',
+                    { className: 'control-label', htmlFor: 'description' },
+                    'Ad description'
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { className: "form-control", id: "description", name: "description", rows: "6" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', { className: 'form-control', id: 'description', name: 'description', rows: '6' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "p",
-                    { className: "help-block" },
-                    "Describe your ad."
+                    'p',
+                    { className: 'help-block' },
+                    'Describe your ad.'
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group" },
+                  'div',
+                  { className: 'form-group' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "label",
-                    { className: "control-label", htmlFor: "category" },
-                    "Select category"
+                    'label',
+                    { className: 'control-label', htmlFor: 'category' },
+                    'Select category'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "select",
-                    { className: "form-control", placeholder: "Category", id: "category", name: "category" },
+                    'select',
+                    { className: 'form-control', placeholder: 'Category', id: 'category', name: 'category' },
                     categoryLsit
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-4" },
+                'div',
+                { className: 'col-sm-4' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "input-group" },
+                  'div',
+                  { className: 'input-group' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "span",
-                    { className: "input-group-addon" },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-inr" })
+                    'span',
+                    { className: 'input-group-addon' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-inr' })
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "number", className: "form-control", id: "price", name: "price", placeholder: "Price" }),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", { className: "help-block" })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'number', className: 'form-control', id: 'price', name: 'price', placeholder: 'Price' }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { className: 'help-block' })
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-4" },
+                'div',
+                { className: 'col-sm-4' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group" },
+                  'div',
+                  { className: 'form-group' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "checkbox" },
+                    'div',
+                    { className: 'checkbox' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "label",
+                      'label',
                       null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "checkbox", id: "negotiable", name: "negotiable" }),
-                      "Negotiable"
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', id: 'negotiable', name: 'negotiable' }),
+                      'Negotiable'
                     )
                   )
                 )
               ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10 form-break" },
+                'div',
+                { className: 'col-sm-10 form-break' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "h4",
+                  'h4',
                   null,
-                  "Add Images"
+                  'Add Images'
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "p",
+                  'p',
                   null,
-                  "Upload your featured image below."
+                  'Upload your featured image below.'
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UploadImage__["a" /* default */], { name: "image1" })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UploadImage__["a" /* default */], { name: 'image1' })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UploadImage__["a" /* default */], { name: "image2" })
+                'div',
+                { className: 'col-sm-10' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UploadImage__["a" /* default */], { name: 'image2' })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UploadImage__["a" /* default */], { name: "image3" })
+                'div',
+                { className: 'col-sm-10' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UploadImage__["a" /* default */], { name: 'image3' })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__UploadImage__["a" /* default */], { name: "image4" })
+                'div',
+                { className: 'col-sm-10' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UploadImage__["a" /* default */], { name: 'image4' })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group" },
+                  'div',
+                  { className: 'form-group' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "checkbox" },
+                    'div',
+                    { className: 'checkbox' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "label",
+                      'label',
                       null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "checkbox", id: "accept_terms", name: "accept_terms" }),
-                      "I agree to the Terms of Service"
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'checkbox', id: 'accept_terms', name: 'accept_terms' }),
+                      'I agree to the Terms of Service'
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", { className: "help-block" })
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('p', { className: 'help-block' })
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "col-sm-10" },
+                'div',
+                { className: 'col-sm-10' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "form-group" },
+                  'div',
+                  { className: 'form-group' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "button",
-                    { type: "submit", className: "btn btn-primary btn-lg btn-wide" },
-                    "Submit"
+                    'button',
+                    { type: 'submit', className: 'btn btn-primary btn-lg btn-wide' },
+                    'Submit'
                   )
                 )
               )
@@ -51647,7 +51654,7 @@ var FormNewAd = function (_Component) {
       );
     }
   }, {
-    key: "callValidate",
+    key: 'callValidate',
     value: function callValidate() {
       $("#form_additem").validate({
 
@@ -51727,7 +51734,7 @@ function mapStateToProps(state) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(mapStateToProps)(FormNewAd));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(mapStateToProps)(FormNewAd)));
 
 /***/ }),
 /* 310 */

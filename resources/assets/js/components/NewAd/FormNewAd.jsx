@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+import { withRouter  } from 'react-router-dom';
 import { connect } from "react-redux"
 
 import UploadImage from "./UploadImage"
 import QuickSellTips from "./QuickSellTips"
 
+let comp = null;
+
 class FormNewAd extends Component {
   constructor(props) {
     super(props);
+    comp = this;
   }
   componentDidMount() {
     $('#category').select2({
@@ -198,4 +202,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(FormNewAd);
+export default withRouter(connect(mapStateToProps)(FormNewAd));
