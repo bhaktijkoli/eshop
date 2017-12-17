@@ -6,6 +6,8 @@ import Header from './Header/Header.jsx';
 import Home from './Home/Home.jsx';
 import NewAd from './NewAd/NewAd.jsx';
 
+import Spinner from './Spinner.jsx';
+
 import {getAuthUser} from '../actions/authActions'
 import {getCategories} from '../actions/categoryActions'
 
@@ -16,13 +18,20 @@ class Layout extends Component {
     getCategories(this.props)
   }
   render() {
-    return (
-      <div className="wrapper">
-        <Header/>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/new-ad" component={NewAd}/>
-      </div>
-    );
+    if(this.props.auth.loading == true) {
+      return(
+        <Spinner/>
+      )
+    }
+    else {
+      return(
+        <div className="wrapper animated fadeIn">
+          <Header/>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/new-ad" component={NewAd}/>
+        </div>
+      )
+    }
   }
 }
 
