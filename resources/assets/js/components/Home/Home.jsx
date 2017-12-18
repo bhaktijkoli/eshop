@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+
+import FlashMessages from './../FlashMessages';
 
 class Home extends Component {
   constructor(props) {
@@ -63,6 +65,11 @@ class Home extends Component {
                 </form>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="content-wrapper">
+          <div className="container">
+
           </div>
         </div>
       </div>

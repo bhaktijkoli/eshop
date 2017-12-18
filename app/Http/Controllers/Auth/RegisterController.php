@@ -10,6 +10,8 @@ use App\User;
 use App\EmailVerification;
 use App\ResponseBuilder;
 
+use FlashMessage;
+
 use App\Http\Requests\RegisterRequest;
 
 use App\Notifications\RegisterNotification;
@@ -30,6 +32,7 @@ class RegisterController extends Controller
     $user->save();
     $ev = EmailVerification::new($user, $request->input('email'));
     $user->notify(new RegisterNotification($user, $ev));
+    FlashMessage::make("success","Your registration was successfull, A confirmation e-mail will be sent to $user->email.");
     return ResponseBuilder::send(true,"","/");
   }
   public function verify(Request $request)

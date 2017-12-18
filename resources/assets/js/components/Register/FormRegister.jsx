@@ -83,7 +83,7 @@ class FormRegister extends Component {
           var data = response.data;
           console.log(data);
           if(fh.is_success(data)) {
-            comp.props.history.push("/");
+            fh.redirect(data);
           }
           else {
             fh.set_multierrors(data);

@@ -20,12 +20,13 @@ Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/user/verify', 'Auth\RegisterController@verify');
 
 Route::prefix('api')->group(function () {
-    Route::get('auth','UserController@getAuth');
-    Route::get('get/categories','ItemController@getCategories');
-    Route::post('/items/add','ItemController@add');
-    Route::get('/items/get','ItemController@get');
+  Route::get('/flash', function() { return FlashMessage::getAll();});
+  Route::get('auth','UserController@getAuth');
+  Route::get('get/categories','ItemController@getCategories');
+  Route::post('/items/add','ItemController@add');
+  Route::get('/items/get','ItemController@get');
 
-    Route::post('/user/register','Auth\RegisterController@register');
+  Route::post('/user/register','Auth\RegisterController@register');
 });
 
 Route::get('/loginv/dev', function() {
