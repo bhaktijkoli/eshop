@@ -17,6 +17,7 @@ Route::view('/login', 'index');
 Route::view('/register', 'index');
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
+Route::get('/user/verify', 'Auth\RegisterController@verify');
 
 Route::prefix('api')->group(function () {
     Route::get('auth','UserController@getAuth');

@@ -18,13 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('access', ['0','1','2'])->default('0');
+            $table->enum('access', [0,1,2])->default(0);
             $table->string('avatar')->nullable();
             $table->string('facebook')->nullable();
             $table->string('google')->nullable();
             $table->string('twitter')->nullable();
-            $table->enum('use_avatar', ['0','1'])->default('1');
-            $table->enum('email_notifications', ['0','1'])->default('1');
+            $table->enum('use_avatar', [0,1])->default(1);
+            $table->enum('email_notifications', [0,1])->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

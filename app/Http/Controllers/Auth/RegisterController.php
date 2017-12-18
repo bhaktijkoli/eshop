@@ -7,9 +7,12 @@ use App\Http\Controllers\Controller;
 
 use Auth;
 use App\User;
+use App\EmailVerification;
 use App\ResponseBuilder;
 
 use App\Http\Requests\RegisterRequest;
+
+use App\Notifications\RegisterNotification;
 
 class RegisterController extends Controller
 {
@@ -25,6 +28,17 @@ class RegisterController extends Controller
     $user->email = $request->input('email');
     $user->password = bcrypt($request->input('password'));
     $user->save();
+    $ev = EmailVerification::new($user, $request->input('email'));
+    $user->notify(new RegisterNotification($user, $ev));
     return ResponseBuilder::send(true,"","/");
+  }
+  public function verify(Request $request)
+  {
+    $id = $request->input("id");
+    $token = $request->input("token");
+    if(EmailVerification::verify($id, $token)) {
+
+    }
+    return redirect()->route('home');
   }
 }
