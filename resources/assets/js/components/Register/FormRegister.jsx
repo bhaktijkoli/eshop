@@ -1,14 +1,34 @@
 import React, { Component } from 'react';
 import { withRouter, Link  } from 'react-router-dom';
 
+
+import CardMessage from '../CardMessage';
+
 let comp = null;
 
 class FormRegister extends Component {
   constructor(props) {
     super(props);
     comp = this;
+    this.state={
+      success:false,
+      type:'',
+      icon:'',
+      title:'',
+      message:'',
+    }
   }
   render() {
+    if(this.state.success == true) {
+      return(
+        <CardMessage type={this.state.type} title={this.state.title} icon={this.state.icon}>
+          <div className="text-center">
+            {this.state.message}
+          </div>
+          <Link to="/login" className="btn btn-primary btn-round btn-block">Login</Link>
+        </CardMessage>
+      )
+    }
     return(
       <div className="card card-signup animated fadeInDown">
         <form id="form_register" method="POST" action="">
@@ -81,9 +101,14 @@ class FormRegister extends Component {
         axios.post("/api/user/register", new FormData(form))
         .then(function (response) {
           var data = response.data;
-          console.log(data);
           if(fh.is_success(data)) {
-            fh.redirect(data);
+            comp.setState({
+              success:true,
+              type:'success',
+              icon:'fa fa-check',
+              title:'Success!',
+              message:data.messages,
+            })
           }
           else {
             fh.set_multierrors(data);
