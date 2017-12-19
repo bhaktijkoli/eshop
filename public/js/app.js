@@ -51942,6 +51942,7 @@ var FormLogin = function (_Component) {
     var _this = _possibleConstructorReturn(this, (FormLogin.__proto__ || Object.getPrototypeOf(FormLogin)).call(this, props));
 
     comp = _this;
+    _this.state = { errorMessage: '' };
     return _this;
   }
 
@@ -51951,10 +51952,19 @@ var FormLogin = function (_Component) {
       setTimeout(function () {
         $('.card-signup').addClass('animated fadeInDown');
       }, 1000);
+      $('#error-result').hide();
       $('#login_form').submit(function (event) {
         event.preventDefault();
+        fh.hide_button();
+        $('#error-result').hide();
         axios.post('/api/user/login', $(this).serialize()).then(function (response) {
-          console.log(response);
+          var data = response.data;
+          if (fh.is_success(data)) {
+            fh.redirect(data);
+          } else {
+            fh.set_single_error(data);
+            fh.show_button();
+          }
         });
       });
     }
@@ -51984,6 +51994,7 @@ var FormLogin = function (_Component) {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'login-form' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'error-result', className: 'alert alert-danger' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'form-group has-feedback' },

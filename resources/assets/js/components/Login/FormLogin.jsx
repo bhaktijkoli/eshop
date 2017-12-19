@@ -7,16 +7,27 @@ class FormLogin extends Component {
   constructor(props) {
     super(props);
     comp = this;
+    this.state = {errorMessage:''}
   }
   componentDidMount() {
     setTimeout(function () {
       $('.card-signup').addClass('animated fadeInDown')
     }, 1000);
+    $('#error-result').hide();
     $('#login_form').submit(function(event) {
       event.preventDefault();
+      fh.hide_button();
+      $('#error-result').hide();
       axios.post('/api/user/login', $(this).serialize())
       .then(function(response) {
-        console.log(response);
+        var data = response.data;
+        if(fh.is_success(data)) {
+          fh.redirect(data);
+        }
+        else {
+          fh.set_single_error(data);
+          fh.show_button();
+        }
       });
     });
   }
@@ -28,6 +39,9 @@ class FormLogin extends Component {
             <h4><i className="fa fa-user">&nbsp;&nbsp;</i>Login</h4>
           </div>
           <div className="login-form">
+            <div id="error-result" className="alert alert-danger">
+
+            </div>
             <div className="form-group has-feedback">
               <input type="text" className="form-control input-lg" id="email" name="email" placeholder="Email"/>
               <i className="fa fa-envelope form-control-feedback"></i>
