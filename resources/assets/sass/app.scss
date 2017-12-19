@@ -67,15 +67,18 @@ body {
   position: absolute;
   top: 20px;
 }
-.navbar-transparent .btn {
-  // background-color: rgba(255, 255, 255, 0.1) !important;
-  // border: 1px solid rgba(255, 255, 255, 0.3) !important;
+.navbar-nav .btn {
+  background-color: transparent !important;
+  border: none !important;
   margin-right: 10px !important;
   margin-left: 10px !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
 }
-// .navbar-transparent .btn:hover {
-//   background-color: $brand-primary !important;
-// }
+.navbar-transparent .btn:hover {
+  background-color: $brand-primary !important;
+  @extend .z-depth-1;
+}
 
 // BANNER
 .banner {

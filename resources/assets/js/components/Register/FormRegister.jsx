@@ -25,7 +25,7 @@ class FormRegister extends Component {
           <div className="text-center">
             {this.state.message}
           </div>
-          <Link to="/login" className="btn btn-primary btn-round btn-block">Login</Link>
+          <Link to="/login" className="btn btn-primary btn-round btn-block btn-simple">Proceed to login</Link>
         </CardMessage>
       )
     }

@@ -30,7 +30,7 @@ class UserDropDown extends Component {
     else {
       return (
         <ul className="nav navbar-nav pull-right">
-          <li><Link to="/login" className="btn btn-primary"><i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</Link></li>
+          <li><Link to="/login" className="btn"><i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</Link></li>
           {/* <li><a href="/loginv/dev" className="btn btn-primary"><i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></li> */}
         </ul>
       );

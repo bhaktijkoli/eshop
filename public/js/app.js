@@ -51061,7 +51061,7 @@ var UserDropDown = function (_Component) {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/login', className: 'btn btn-primary' },
+              { to: '/login', className: 'btn' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-sign-in', 'aria-hidden': 'true' }),
               '\xA0Login'
             )
@@ -52197,8 +52197,8 @@ var FormRegister = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-            { to: '/login', className: 'btn btn-primary btn-round btn-block' },
-            'Login'
+            { to: '/login', className: 'btn btn-primary btn-round btn-block btn-simple' },
+            'Proceed to login'
           )
         );
       }
