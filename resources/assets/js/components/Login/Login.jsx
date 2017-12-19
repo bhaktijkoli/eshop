@@ -3,6 +3,7 @@ import { Route, withRouter, Link  } from 'react-router-dom';
 import { connect } from "react-redux"
 
 import FormLogin from './FormLogin'
+import FlashMessages from './../FlashMessages'
 
 class Login extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Login extends Component {
     return(
       <div className="container login-content">
         <div className="filter"></div>
+        <FlashMessages />
         <div className="row">
           <div className="col-sm-4 col-sm-offset-4">
             <FormLogin />

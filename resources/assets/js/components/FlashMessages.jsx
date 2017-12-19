@@ -10,7 +10,9 @@ class FlashMessages extends Component {
   componentDidMount() {
     axios.get('/api/flash')
     .then(function (response) {
-      this.setState({messages: response.data});
+      if(response.data.length > 0) {
+        this.setState({messages: response.data});
+      }
     }.bind(this));
   }
   render() {
@@ -18,7 +20,7 @@ class FlashMessages extends Component {
     const getClass = (type) => {
       return "alert alert-" + type;
     }
-    const list = this.state.messages.map((message) =>
+    var list = this.state.messages.map((message) =>
     <div key={count++} className="animated fadeInDown">
       <div className={getClass(message.type)}>
         <button type="button" className="close" data-dismiss="alert" aria-label="Close">

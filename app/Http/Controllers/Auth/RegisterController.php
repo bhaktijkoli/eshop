@@ -39,8 +39,9 @@ class RegisterController extends Controller
     $id = $request->input("id");
     $token = $request->input("token");
     if(EmailVerification::verify($id, $token)) {
-
+      FlashMessage::make("success","Your email has been verified you can now login to your account.");
+      return redirect('/login');
     }
-    return redirect()->route('home');
+    return redirect('/');
   }
 }

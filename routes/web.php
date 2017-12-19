@@ -27,6 +27,7 @@ Route::prefix('api')->group(function () {
   Route::get('/items/get','ItemController@get');
 
   Route::post('/user/register','Auth\RegisterController@register');
+  Route::post('/user/login','Auth\LoginController@login');
 });
 
 Route::get('/loginv/dev', function() {

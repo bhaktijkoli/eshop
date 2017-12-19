@@ -12,17 +12,24 @@ class FormLogin extends Component {
     setTimeout(function () {
       $('.card-signup').addClass('animated fadeInDown')
     }, 1000);
+    $('#login_form').submit(function(event) {
+      event.preventDefault();
+      axios.post('/api/user/login', $(this).serialize())
+      .then(function(response) {
+        console.log(response);
+      });
+    });
   }
   render() {
     return(
       <div className="card card-signup animated fadeInDown">
-        <form className="form" method="" action="">
+        <form id="login_form" className="form" method="" action="">
           <div className="card-title header header-primary text-center">
             <h4><i className="fa fa-user">&nbsp;&nbsp;</i>Login</h4>
           </div>
           <div className="login-form">
             <div className="form-group has-feedback">
-              <input type="text" className="form-control input-lg" id="username" name="username" placeholder="Username"/>
+              <input type="text" className="form-control input-lg" id="email" name="email" placeholder="Email"/>
               <i className="fa fa-envelope form-control-feedback"></i>
             </div>
             <div className="form-group has-feedback">

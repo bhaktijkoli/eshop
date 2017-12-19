@@ -45,7 +45,6 @@ class EmailVerification extends Model
       $ev->times++;
       $ev->save();
     }
-    dd("false");
     return false;
   }
 

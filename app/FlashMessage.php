@@ -18,7 +18,7 @@ class FlashMessage
   }
   public static function getAll() {
     $messages = Session::get(Self::$sname);
-    // Session::forget(Self::$sname);
+    Session::forget(Self::$sname);
     return $messages;
   }
 }
