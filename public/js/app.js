@@ -52022,20 +52022,20 @@ var FormLogin = function (_Component) {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', { className: 'hr-text', 'data-content': 'OR' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'btn btn-block btn-facebook btn-round' },
+              'a',
+              { href: '/login/facebook', className: 'btn btn-block btn-facebook btn-round' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-facebook' }),
               '\xA0\xA0Login with Facebook'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'btn btn-block btn-twitter btn-round' },
+              'a',
+              { href: '/login/twitter', className: 'btn btn-block btn-twitter btn-round' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-twitter' }),
               '\xA0\xA0Login with Twitter'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/', className: 'btn btn-block btn-google btn-round' },
+              'a',
+              { href: '/login/google', className: 'btn btn-block btn-google btn-round' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'fa fa-google' }),
               '\xA0\xA0Login with Google'
             ),

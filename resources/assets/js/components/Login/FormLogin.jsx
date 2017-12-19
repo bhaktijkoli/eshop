@@ -47,15 +47,15 @@ class FormLogin extends Component {
             </div>
             <button className="btn btn-primary btn-round btn-block">Login</button>
              <hr className="hr-text" data-content="OR" />
-            <Link to="/" className="btn btn-block btn-facebook btn-round">
+            <a href="/login/facebook" className="btn btn-block btn-facebook btn-round">
               <span className="fa fa-facebook"></span>&nbsp;&nbsp;Login with Facebook
-            </Link>
-            <Link to="/" className="btn btn-block btn-twitter btn-round">
+            </a>
+            <a href="/login/twitter" className="btn btn-block btn-twitter btn-round">
               <span className="fa fa-twitter"></span>&nbsp;&nbsp;Login with Twitter
-            </Link>
-            <Link to="/" className="btn btn-block btn-google btn-round">
+            </a>
+            <a href="/login/google" className="btn btn-block btn-google btn-round">
               <span className="fa fa-google"></span>&nbsp;&nbsp;Login with Google
-            </Link>
+            </a>
             <hr className="hr-text" data-content="OR" />
             <Link to="/register" className="btn btn-primary btn-round btn-block">Register now!</Link>
           </div>

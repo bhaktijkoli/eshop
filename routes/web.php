@@ -19,6 +19,10 @@ Route::view('/register', 'index');
 Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/user/verify', 'Auth\RegisterController@verify');
 
+Route::get('/login/{provider}', 'Auth\SocialLoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'Auth\SocialLoginController@handleProviderCallback');
+
+
 Route::prefix('api')->group(function () {
   Route::get('/flash', function() { return FlashMessage::getAll();});
   Route::get('auth','UserController@getAuth');
