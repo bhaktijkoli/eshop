@@ -50958,14 +50958,30 @@ var UserDropDown = function (_Component) {
   }
 
   _createClass(UserDropDown, [{
+    key: 'onImageLoadFail',
+    value: function onImageLoadFail() {
+      alert("Working");
+      console.log(this.props.refs);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var auth = this.props.auth;
-      var user = this.props.user;
       if (auth.check == 1) {
+        var user = auth.user;
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'ul',
           { className: 'nav navbar-nav pull-right' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'li',
+            null,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: '/new-ad', className: 'btn' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-pencil-square-o', 'aria-hidden': 'true' }),
+              'POST AN AD'
+            )
+          ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'li',
             { className: 'dropdown' },
@@ -50975,7 +50991,7 @@ var UserDropDown = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'profile-photo-small' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: 'http://via.placeholder.com/40x40', alt: 'Circle Image', className: 'img-circle img-responsive' })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { ref: 'avatar', src: user.avatar, alt: 'Circle Image', className: 'img-circle img-responsive', onError: this.onImageLoadFail.bind(this) })
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -51039,16 +51055,6 @@ var UserDropDown = function (_Component) {
                   '\xA0Logout'
                 )
               )
-            )
-          ),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'li',
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-              { to: '/new-ad', className: 'btn btn-primary btn-nav' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-pencil-square-o', 'aria-hidden': 'true' }),
-              'POST AN AD'
             )
           )
         );

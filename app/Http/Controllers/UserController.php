@@ -16,6 +16,7 @@ class UserController extends Controller
         $user["check"] = 1;
         $user["name"] = Auth::user()->name;
         $user["email"] = Auth::user()->email;
+        $user["avatar"] = Auth::user()->avatar;
       }
       return $user;
     }
