@@ -42,3 +42,9 @@ Route::get('/loginv/dev', function() {
   Auth::login($user);
   return redirect()->route('home');
 });
+Route::get('/update', function(){
+  chdir(base_path());
+  exec('git reset --hard 2>&1', $output);
+  exec('git pull origin master 2>&1', $output);
+  return $output;
+});
