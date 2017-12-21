@@ -7,6 +7,8 @@ import Home from './Home/Home.jsx';
 import NewAd from './NewAd/NewAd.jsx';
 import Login from './Login/Login.jsx';
 import Register from './Register/Register.jsx';
+import ForgotPassword from './Login/ForgotPassword.jsx';
+import ResetPassword from './Login/ResetPassword.jsx';
 
 import Spinner from './Spinner.jsx';
 
@@ -33,6 +35,8 @@ class Layout extends Component {
           <Route exact path="/new-ad" component={NewAd}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/register" component={Register}/>
+          <Route exact path="/forgotpassword" component={ForgotPassword}/>
+          <Route exact path="/user/resetpassword" component={ResetPassword}/>
         </div>
       )
     }

@@ -32,7 +32,7 @@ class RegisterController extends Controller
     $user->save();
     $ev = EmailVerification::new($user, $request->input('email'));
     $user->notify(new RegisterNotification($user, $ev));
-    return ResponseBuilder::send(true,"Your registration was successfull, A confirmation e-mail will be sent to $user->email.","");
+    return ResponseBuilder::send(true,"Your registration was successfull, A confirmation email will be sent to $user->email.","");
   }
   public function verify(Request $request)
   {

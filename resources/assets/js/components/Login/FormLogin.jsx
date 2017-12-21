@@ -51,13 +51,13 @@ class FormLogin extends Component {
               <i className="fa fa-lock form-control-feedback"></i>
             </div>
             <div className="form-group">
-              <div className="checkbox">
+              <div className="checkbox" style={{width:'200px'}}>
                 <label>
                   <input type="checkbox" id="remember_me" name="remember_me"/>
                   Remember me
                 </label>
               </div>
-              <Link to="/register" style={{float:'right', marginTop:'-35px'}}>Forgot password ?</Link>
+              <Link to="/forgotpassword" style={{float:'right', marginTop:'-35px'}}>Forgot password ?</Link>
             </div>
             <button className="btn btn-primary btn-round btn-block">Login</button>
              <hr className="hr-text" data-content="OR" />

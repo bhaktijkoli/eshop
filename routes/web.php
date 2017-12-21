@@ -15,9 +15,11 @@ Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
 Route::view('/login', 'index');
 Route::view('/register', 'index');
+Route::view('/forgotpassword', 'index');
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/user/verify', 'Auth\RegisterController@verify');
+Route::get('/user/resetpassword', 'Auth\ResetPasswordController@resetpassword');
 
 Route::get('/login/{provider}', 'Auth\SocialLoginController@redirectToProvider');
 Route::get('/login/{provider}/callback', 'Auth\SocialLoginController@handleProviderCallback');
@@ -32,6 +34,8 @@ Route::prefix('api')->group(function () {
 
   Route::post('/user/register','Auth\RegisterController@register');
   Route::post('/user/login','Auth\LoginController@login');
+  Route::post('/user/forgotpassword','Auth\ResetPasswordController@forgotpassword');
+  Route::post('/user/resetpassword','Auth\ResetPasswordController@newpassword');
 });
 
 Route::get('/loginv/dev', function() {
