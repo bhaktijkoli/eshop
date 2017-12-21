@@ -44,7 +44,7 @@ Route::get('/loginv/dev', function() {
 });
 Route::get('/update', function(){
   chdir(base_path());
-  exec('git reset --hard 2>&1', $output);
-  exec('git pull origin master 2>&1', $output);
-  return $output;
+  $res = exec('git reset --hard 2>&1', $output);
+  $res = $res . '<br />' . exec('git pull origin master 2>&1', $output);
+  return $res;
 });
