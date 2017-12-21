@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import FlashMessages from './../FlashMessages';
 
+import AdList from './AdList';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -46,7 +48,7 @@ class Home extends Component {
                 <form id="search-form">
                   <div className="col-sm-3 nomargin">
                     <div className="form-group">
-                      <select id="category" className="form-control input-lg">
+                      <select id="category" name="category" className="form-control input-lg">
                         <option>All Categories</option>
                         {categoryLsit}
                       </select>
@@ -67,9 +69,9 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <div className="content-wrapper">
+        <div className="content-wrapper-search">
           <div className="container">
-
+            <AdList/>
           </div>
         </div>
       </div>

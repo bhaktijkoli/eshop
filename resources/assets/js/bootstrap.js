@@ -22,3 +22,4 @@ require('./scripts/material-kit.js');
 require('./scripts/select2.full');
 require('./scripts/formhandler');
 require('./scripts/jquery.validate');
+require('./scripts/jquery.fancybox');
