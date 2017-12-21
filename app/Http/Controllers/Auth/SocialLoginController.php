@@ -15,7 +15,7 @@ class SocialLoginController extends Controller
   {
     $this->middleware('guest');
   }
-  private $services = ['facebook'];
+  private $services = ['facebook','google'];
 
   public function redirectToProvider($provider)
   {
