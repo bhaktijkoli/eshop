@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter  } from 'react-router-dom';
 import { connect } from "react-redux"
 
+import UploadImage from './UploadImage'
+
 let comp = null;
 
 class FormNewAd extends Component {

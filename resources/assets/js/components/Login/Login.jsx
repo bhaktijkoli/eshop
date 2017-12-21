@@ -8,9 +8,7 @@ import FlashMessages from './../FlashMessages'
 class Login extends Component {
   constructor(props) {
     super(props);
-    if(this.props.auth.check == true) {
-      this.props.history.push("/");
-    }
+    if(this.props.auth.check==true) this.props.history.push('/');
   }
   componentDidMount() {
     $(window).scrollTop(0);

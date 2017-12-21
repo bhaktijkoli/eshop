@@ -7,9 +7,7 @@ import ForgotPasswordForm from './ForgotPasswordForm'
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
-    if(this.props.auth.check == true) {
-      this.props.history.push("/");
-    }
+    if(this.props.auth.check==true) this.props.history.push('/');
     window.title = "Register now!"
   }
   componentDidMount() {
