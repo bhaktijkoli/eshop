@@ -137,7 +137,7 @@
 }
 
 .select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
-  background-color: #9c27b0;
+  background-color: $brand-primary;
   color: #fff;
   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
@@ -193,7 +193,7 @@
   transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
-  border-color: #9c27b0;
+  border-color: $brand-primary;
 }
 
 .select2-container--bootstrap.select2-container--open {
@@ -258,7 +258,7 @@
 .select2-container--bootstrap .select2-dropdown {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  border-color: #9c27b0;
+  border-color: $brand-primary;
   overflow-x: hidden;
   margin-top: -1px;
 }
