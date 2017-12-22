@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import FlashMessages from './../FlashMessages';
 
+import HomeSearchForm from './HomeSearchForm';
 import AdList from './AdList';
 
 class Home extends Component {
@@ -14,9 +15,6 @@ class Home extends Component {
     $.material.init();
     this.checkScroll();
     $(window).on('scroll', this.checkScroll);
-    $('#category').select2({
-      theme: "bootstrap"
-    });
   }
   componentWillUnmount() {
     $('#nav-main').removeClass('navbar-transparent');
@@ -34,37 +32,15 @@ class Home extends Component {
   }
   render() {
     var auth = this.props.auth;
-    var categories = this.props.category.categories;
-    var categoryLsit = categories.map((category) =>
-    <option value={category.id} key={category.id}>
-      {category.name}
-    </option>  );
     return (
-      <div>
+      <div className="banner-intro">
         <div className="banner">
           <div className="container">
             <div className="row">
               <div className="banner-search">
-                <form id="search-form">
-                  <div className="col-sm-3 nomargin">
-                    <div className="form-group">
-                      <select id="category" name="category" className="form-control input-lg">
-                        <option>All Categories</option>
-                        {categoryLsit}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-sm-8 nomargin">
-                    <div className="form-group">
-                      <input type="text" className="form-control input-lg" id="search" name="search" placeholder="Keyword"/>
-                    </div>
-                  </div>
-                  <div className="col-sm-1 nomargin">
-                    <div className="form-group">
-                      <button className="btn btn-primary"><i className="fa fa-search"></i></button>
-                    </div>
-                  </div>
-                </form>
+                <h2 className="title">Find what you are looking for</h2>
+                <h4 className="subtitle">Search from over 99,00,000 Active ads</h4>
+                <HomeSearchForm/>
               </div>
             </div>
           </div>

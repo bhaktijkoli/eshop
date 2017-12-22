@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
 Route::view('/login', 'index');

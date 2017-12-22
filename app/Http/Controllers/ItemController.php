@@ -20,11 +20,14 @@ class ItemController extends Controller
   public function get(Request $request) {
     $category = $request->input('category',"-1");
     $search = $request->input('search',"");
-    $query = Item::select("id","title","description","price","negotiable","category","url","created_at")->where("pending","0");
+    $query = Item::select("id","title","description","price","negotiable","category","url","created_at");
     $query = $query->where("title",'like',"%$search%");
+    $query = $category==-1?$query:$query->where('category',$category);
     $items = $query->get();
-    $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->get();
+    // $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->get();
+    $no=1;
     foreach ($items as &$item) {
+      $item->id = $no++;
       $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
       if($image) {
         $item->image = $image->getUrl();

@@ -91,12 +91,24 @@ body {
   height: 600px;
 }
 .banner-search {
-  margin-top: 300px;
+  margin-top: 250px;
+}
+.banner-search .title {
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+}
+.banner-search .subtitle {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.banner .search-form {
   display: inline-block;
   width: 100%;
   height: 100%;
   padding: 10px;
-  background-color: #fefefe30;
+  background-color: #fefefe14;
 }
 .banner-search .form-group {
   margin-bottom: 0px;

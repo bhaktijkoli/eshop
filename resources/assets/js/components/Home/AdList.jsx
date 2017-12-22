@@ -1,43 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 
-import Ad from './Ad';
+import Spinner from './../Spinner';
 
-let comp;
+import Ad from './Ad';
 
 class AdList extends Component {
   constructor(props) {
     super(props);
-    comp = this;
-    this.state={
-      loading:false,
-      list:[],
-    }
   }
   componentDidMount() {
-    $('#search-form').submit(function(event) {
-      event.preventDefault();
-      comp.setState({loading:true})
-      axios.get('/api/items/get', $(this).serialize())
-      .then(function(response){
-        console.log(response.data)
-        comp.setState({list:response.data})
-        comp.setState({loading:false})
-      })
-    });
   }
   render() {
-    if(this.state.loading == true) {
+    if(this.props.loading == true) {
       return(
-        <h1>Loading</h1>
+        <Spinner/>
       );
     }
     else {
-      if(this.state.list.length > 0) {
+      if(this.props.list.length > 0) {
         return(
-          <div className="search-list">
+          <div id="search-list" className="search-list">
             <h3>Search results</h3>
-            {this.state.list.map((item) =>
+            {this.props.list.map((item) =>
               <div key={item.id} className="col-sm-12">
                 <Ad title={item.title}
                   item_id={item.id}
@@ -56,17 +41,33 @@ class AdList extends Component {
         );
       }
       else {
-        return <div className="search-list-empty">List Empty</div>
+        if(this.props.searched==true) {
+          return(
+            <div className="search-list-empty">
+              <div className="text-center">
+                <h3>No results found</h3>
+                <span>We couldn't find any results for <b>{$("#search").val()}</b>.</span><br />
+                <span>Please make sure that your keywords are spelled correctly.</span>
+              </div>
+            </div>);
+          }
+          else {
+            return <div className="search-list-empty"></div>
+          }
+        }
       }
     }
   }
-}
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-    category: state.category
-  };
-}
+  function mapStateToProps(state) {
+    return {
+      auth: state.auth,
+      category: state.category,
+      search: state.search,
+      loading: state.search.loading,
+      searched: state.search.searched,
+      list: state.search.list,
+    };
+  }
 
-export default connect(mapStateToProps)(AdList);
+  export default connect(mapStateToProps)(AdList);

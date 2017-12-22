@@ -22431,18 +22431,33 @@ body {
 }
 
 .banner {
-  background: url(/images/banner.jpg?3b549ec3b8129290bb92c53f36923d45) center center no-repeat;
+  background: url(/images/banner.jpg?73c669f010c21ae4d6cd94fa6d811606) center center no-repeat;
   background-size: cover;
   height: 600px;
 }
 
 .banner-search {
-  margin-top: 300px;
+  margin-top: 250px;
+}
+
+.banner-search .title {
+  color: white;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.banner-search .subtitle {
+  color: white;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.banner .search-form {
   display: inline-block;
   width: 100%;
   height: 100%;
   padding: 10px;
-  background-color: #fefefe30;
+  background-color: #fefefe14;
 }
 
 .banner-search .form-group {
@@ -22474,7 +22489,7 @@ body {
 }
 
 .login-background {
-  background-image: url(/images/banner.jpg?3b549ec3b8129290bb92c53f36923d45);
+  background-image: url(/images/banner.jpg?73c669f010c21ae4d6cd94fa6d811606);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;

@@ -4,17 +4,21 @@ import { Route, withRouter  } from 'react-router-dom';
 class Ad extends Component {
   constructor(props) {
     super(props);
+    this.state={itemClass:'hidden'};
   }
   componentDidMount() {
     $.material.init();
+    setTimeout(function () {
+      this.setState({itemClass:'item animated fadeInDown'});
+    }.bind(this),100*this.props.item_id);
   }
 
   render() {
     return (
-      <div className="item">
+      <div className={this.state.itemClass}>
         <div className="col-sm-2">
           <div className="thumb">
-            <a href={this.props.image} data-fancybox={this.props.title} data-caption={this.props.title}>
+            <a href={this.props.image} data-fancybox={this.props.item_id} data-caption={this.props.title}>
               <img src={this.props.thumb} width="150"/>
             </a>
           </div>
@@ -30,7 +34,6 @@ class Ad extends Component {
                   <button className="btn btn-white btn-xs btn-round"><i className="fa fa-heart-o" aria-hidden="true"></i></button>
                   <button className="btn btn-info btn-xs btn-round" data-link={"/ad/" + this.props.url}>Details</button>
               </div>
-
             </div>
           </div>
         </div>
@@ -42,7 +45,6 @@ class Ad extends Component {
     );
   }
   printNegotiable() {
-    console.log(this.props);
     if(this.props.negotiable == 1) {
       return  <span><i className="fa fa-check" aria-hidden="true"></i>Negotiable</span>
     }
