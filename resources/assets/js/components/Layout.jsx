@@ -25,7 +25,9 @@ class Layout extends Component {
   render() {
     if(this.props.auth.loading == true) {
       return(
-        <Spinner/>
+        <div style={{marginTop:'20%'}}>
+          <Spinner/>
+        </div>
       )
     }
     else {
@@ -51,5 +53,4 @@ function mapStateToProps(state) {
     categories: state.categories
   };
 }
-
 export default withRouter(connect(mapStateToProps)(Layout));

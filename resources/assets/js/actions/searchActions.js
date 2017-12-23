@@ -10,3 +10,6 @@ export function getList(store, formdata) {
     console.log(error);
   });
 }
+export function resetList(store) {
+  store.dispatch({type: "SEARCH_LIST_RESET"});
+}

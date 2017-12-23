@@ -15,6 +15,9 @@ export default function reducer(state=initialState, action) {
     case "SEARCH_GET_LIST": {
       return {...state, list: action.payload}
     }
+    case "SEARCH_LIST_RESET": {
+      return {...state, list: [], searched: false}
+    }
   }
 
   return state

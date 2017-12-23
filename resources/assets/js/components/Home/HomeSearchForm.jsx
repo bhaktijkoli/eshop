@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import {getList} from './../../actions/searchActions'
+import {resetList} from './../../actions/searchActions'
 
 class Home extends Component {
   constructor(props) {
     super(props);
+    resetList(this.props);
   }
   componentDidMount() {
     $.material.init();
