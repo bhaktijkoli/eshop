@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter  } from 'react-router-dom';
+import { Route, withRouter, Link } from 'react-router-dom';
 
 class Ad extends Component {
   constructor(props) {
@@ -25,14 +25,14 @@ class Ad extends Component {
         </div>
         <div className="col-sm-9">
           <div className="content">
-            <h4>{this.props.title} <span className="label label-primary">{this.props.category}</span></h4>
+            <h4><Link to={this.getUrl()} className="title">{this.props.title}</Link> <span className="label label-primary">{this.props.category}</span></h4>
             <p className="content-body">{this.props.description}</p>
             <hr/>
             <div className="footer">
               <small><i className="fa fa-clock-o" aria-hidden="true">&nbsp;</i>{this.props.datetime}</small>
               <div className="action">
-                  <button className="btn btn-white btn-xs btn-round"><i className="fa fa-heart-o" aria-hidden="true"></i></button>
-                  <button className="btn btn-info btn-xs btn-round" data-link={"/ad/" + this.props.url}>Details</button>
+                  <a className="btn btn-white btn-xs btn-round"><i className="fa fa-heart-o" aria-hidden="true"></i></a>
+                  <Link to={this.getUrl()} className="btn btn-info btn-xs btn-round">Details</Link>
               </div>
             </div>
           </div>

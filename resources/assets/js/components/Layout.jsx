@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Header from './Header/Header.jsx';
 import Home from './Home/Home.jsx';
 import NewAd from './NewAd/NewAd.jsx';
+import AdDetails from './AdDetails/AdDetails.jsx';
 import Login from './Login/Login.jsx';
 import Register from './Register/Register.jsx';
 import ForgotPassword from './Login/ForgotPassword.jsx';
@@ -37,6 +38,7 @@ class Layout extends Component {
           <Route exact path="/register" component={Register}/>
           <Route exact path="/forgotpassword" component={ForgotPassword}/>
           <Route exact path="/user/resetpassword" component={ResetPassword}/>
+          <Route exact path="/ad/:adurl" component={AdDetails}/>
         </div>
       )
     }

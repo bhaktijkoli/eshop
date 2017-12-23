@@ -9,7 +9,6 @@ let comp = null;
 class FormRegister extends Component {
   constructor(props) {
     super(props);
-    if(this.props.auth.check==true) this.props.history.push('/');
     comp = this;
     this.state={
       success:false,

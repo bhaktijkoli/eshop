@@ -52,8 +52,7 @@ body {
   font-size: 1.17em;
 }
 .card-body {
-  // padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 0px !important;
 }
 
 // NAVBAR
@@ -215,6 +214,13 @@ body {
   display: block;
   margin-top: -10px;
 }
+.item .content .title{
+  cursor: pointer;
+}
+.item .content .title:hover{
+  color: $brand-primary !important;
+  text-decoration: none !important;
+}
 .item .content-body {
   height: 40px;
   overflow: hidden;
@@ -228,4 +234,17 @@ body {
   float: right;
   margin-top: -10px;
   margin-bottom: -20px;
+}
+
+// Ad Details
+#adCarousel {
+  width: 100%;
+  height: 450px;
+}
+#adCarousel .carousel-inner img {
+  width: 100%;
+  height: 450px;
+}
+#adCarousel .carousel-control {
+  width: 15% !important;
 }

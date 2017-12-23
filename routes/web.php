@@ -13,6 +13,7 @@
 
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
+Route::view('/ad/{adurl}', 'index');
 Route::view('/login', 'index');
 Route::view('/register', 'index');
 Route::view('/forgotpassword', 'index');
@@ -31,6 +32,7 @@ Route::prefix('api')->group(function () {
   Route::get('get/categories','ItemController@getCategories');
   Route::post('/items/add','ItemController@add');
   Route::get('/items/get','ItemController@get');
+  Route::get('/item/get/{url}','ItemController@getItem');
 
   Route::post('/user/register','Auth\RegisterController@register');
   Route::post('/user/login','Auth\LoginController@login');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\AddItemRequest;
 
 use Auth;
+use App\User;
 use App\Item;
 use App\ItemImage;
 use App\Category;
@@ -55,7 +56,8 @@ class ItemController extends Controller
     $item->category = $category;
     $item->price = $price;
     $item->negotiable = $negotiable;
-    $item->url = str_replace(' ', '-',$title) .'id='. uniqid() ;
+    $item->url = str_replace(' ', '-',$title) .'-'. uniqid();
+    $item->url = strtolower($item->url);
     $item->save();
 
     ItemImage::newImage($request->image1,$item->user_id, $item->id,1);
@@ -64,5 +66,23 @@ class ItemController extends Controller
     ItemImage::newImage($request->image4,$item->user_id, $item->id);
 
     return ResponseBuilder::send(true,'',route('home'));
+  }
+
+  public function getItem($url) {
+    $item = Item::select("id",'user_id',"title","description","price","negotiable","category","url","created_at")->where('url',$url)->first();
+    if(!$item) return "";
+    $item->category = Category::where("id",$item->category)->first()->name;
+    $item['datetime'] = $item->created_at->diffForHumans();
+    $imagesAll = ItemImage::where('item_id',$item->id)->get();
+    $images = [];
+    foreach ($imagesAll as $image) {
+      array_push($images,$image->getUrl());
     }
+    $item['images'] = $images;
+    $user = User::select('name','email','avatar','created_at')->where('id',$item->user_id)->first();
+    if(!$user) return "";
+    $user['datetime'] = $user->created_at->format('M j, Y');
+    $item['seller'] = $user;
+    return $item;
+  }
 }
