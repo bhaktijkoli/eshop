@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import AdAbout from './AdAbout';
 import AdSeller from './AdSeller';
+import AdBuyerTips from './AdBuyerTips';
 
 import Spinner from './../Spinner';
 
@@ -47,6 +48,7 @@ class AdDetails extends Component {
             </div>
             <div className="col-sm-3">
               <AdSeller seller={this.state.item.seller}/>
+              <AdBuyerTips />
             </div>
           </div>
         </div>

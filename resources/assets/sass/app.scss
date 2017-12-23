@@ -30,18 +30,9 @@ body {
 .content-wrapper-search {
   margin-top: 10px;
 }
-.filter {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  left: 0;
-  top: 0;
-  content: "";
-  background-color: rgba(0, 0, 0, 0.4);
+.nopadding {
+  padding: 0px !important;
 }
-
 // CARD
 .card {
   padding: 10px;
@@ -52,7 +43,7 @@ body {
   font-size: 1.17em;
 }
 .card-body {
-  padding: 0px !important;
+  padding-top: 0px !important;
 }
 
 // NAVBAR
