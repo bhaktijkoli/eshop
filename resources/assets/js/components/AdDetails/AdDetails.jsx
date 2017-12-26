@@ -47,7 +47,7 @@ class AdDetails extends Component {
               <AdAbout item={this.state.item} />
             </div>
             <div className="col-sm-3">
-              <AdSeller seller={this.state.item.seller}/>
+              <AdSeller item={this.state.item}/>
               <AdBuyerTips />
             </div>
           </div>

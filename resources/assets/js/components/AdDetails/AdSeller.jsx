@@ -12,7 +12,7 @@ class AdSeller extends Component {
     $.material.init();
   }
   render() {
-    const seller = this.props.seller;
+    const seller = this.props.item.seller;
     if(this.props.auth.check == 0) {
       return(
         <div className="card">
@@ -43,7 +43,7 @@ class AdSeller extends Component {
                 <small>Member since {seller.datetime}</small>
               </div>
               <button className="btn btn-primary btn-block" data-toggle="modal" data-target="#modelMessage"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
-              <AdMessage id="modelMessage" seller={seller}/>
+              <AdMessage id="modelMessage" item={this.props.item}/>
             </div>
           </div>
         </div>

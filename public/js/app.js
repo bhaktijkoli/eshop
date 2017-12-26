@@ -23837,6 +23837,7 @@ __webpack_require__(153);
 __webpack_require__(154);
 __webpack_require__(155);
 __webpack_require__(156);
+__webpack_require__(362);
 __webpack_require__(157);
 __webpack_require__(158);
 
@@ -57082,7 +57083,7 @@ var AdDetails = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
               { className: 'col-sm-3' },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__AdSeller__["a" /* default */], { seller: this.state.item.seller }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__AdSeller__["a" /* default */], { item: this.state.item }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__AdBuyerTips__["a" /* default */], null)
             )
           )
@@ -57349,7 +57350,7 @@ var AdSeller = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var seller = this.props.seller;
+      var seller = this.props.item.seller;
       if (this.props.auth.check == 0) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -57421,7 +57422,7 @@ var AdSeller = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-envelope', 'aria-hidden': 'true' }),
                 '\xA0\xA0Message'
               ),
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__AdMessage__["a" /* default */], { id: 'modelMessage', seller: seller })
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__AdMessage__["a" /* default */], { id: 'modelMessage', item: this.props.item })
             )
           )
         );
@@ -57469,14 +57470,10 @@ var AdMessage = function (_Component) {
   }
 
   _createClass(AdMessage, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      $.material.init();
-    }
-  }, {
     key: 'render',
     value: function render() {
-      var seller = this.props.seller;
+      var item = this.props.item;
+      var seller = item.seller;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'modal fade', id: this.props.id, role: 'dialog' },
@@ -57510,6 +57507,8 @@ var AdMessage = function (_Component) {
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
               ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', name: 'seller_id', id: 'seller_id', value: seller.id }),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'hidden', name: 'item_id', id: 'item_id', value: item.id }),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'modal-body', style: { paddingTop: '0px' } },
@@ -57529,7 +57528,7 @@ var AdMessage = function (_Component) {
                 { className: 'modal-footer' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'button',
-                  { type: 'button', className: 'btn btn-success btn-wide', 'data-dismiss': 'modal' },
+                  { type: 'submit', className: 'btn btn-success btn-wide' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-paper-plane', 'aria-hidden': 'true' }),
                   '\xA0\xA0Send'
                 ),
@@ -57543,6 +57542,26 @@ var AdMessage = function (_Component) {
           )
         )
       );
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      $('#message-form').submit(function (event) {
+        event.preventDefault();
+        fh.hide_button();
+        axios.post('/api/user/message', $('#message-form').serialize()).then(function (response) {
+          var data = response.data;
+          fh.show_button();
+          if (fh.is_success(data)) {
+            $('#' + this.props.id).modal("hide");
+            modal.showModalDefault("Message Seller", "Message send successfully, you can manage your messages from <a href='/user/messages'>here</a>", "Ok");
+          }
+          fh.set_multierrors(data);
+        }.bind(this));
+      }.bind(this));
+      $('#' + this.props.id).on('hide.bs.modal', function () {
+        $('#message').val("");
+      });
     }
   }]);
 
@@ -59161,6 +59180,57 @@ function reducer() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */
+/***/ (function(module, exports) {
+
+// Modal JS
+window.modal = {
+  showModalDefault: function showModalDefault(title, message, button) {
+    var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "";
+
+    $('body').append('<div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n    <div class="modal-content">\n    <div class="modal-header">\n    <button type="button" class="close" data-dismiss="modal">&times;</button>\n    <h4 class="modal-title">' + title + '</h4>\n    <hr>\n    </div>\n    <div class="modal-body">\n    ' + message + '\n    </div>\n    <div class="modal-footer">\n    <button type="button" class="btn btn-primary" data-dismiss="modal">' + button + '</button>\n    </div>\n    </div>\n    </div>\n    </div>');
+    $('#dynamicDefaultModal').modal();
+    $("#dynamicDefaultModal").on('hidden.bs.modal', function () {
+      $('#dynamicDefaultModal').remove();
+      if (typeof callback == "function") callback();
+    });
+  },
+  showModelYesNo: function showModelYesNo(title, message) {
+    var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
+
+    $("body").append('  <div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n    <div class="modal-content">\n    <div class="modal-header">\n    <button type="button" class="close" data-dismiss="modal">&times;</button>\n    <h4 class="modal-title">' + title + '</h4>\n    </div>\n    <div class="modal-body">\n    ' + message + '\n    </div>\n    <div class="modal-footer">\n    <button type="button" class="btn btn-primary" id="modalYes">Yes</button>\n    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>\n    </div>\n    </div>\n    </div>\n    </div>');
+    $('#dynamicDefaultModal').modal();
+    $('#dynamicDefaultModal #modalYes').click(function (event) {
+      $('#dynamicDefaultModal').modal("hide");
+      if (typeof callback == "function") callback();
+    });
+    $("#dynamicDefaultModal").on('hidden.bs.modal', function () {
+      $('#dynamicDefaultModal').remove();
+    });
+  },
+  showSendModal: function showSendModal() {}
+};
 
 /***/ })
 /******/ ]);

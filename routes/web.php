@@ -39,6 +39,8 @@ Route::prefix('api')->group(function () {
   Route::post('/user/login','Auth\LoginController@login');
   Route::post('/user/forgotpassword','Auth\ResetPasswordController@forgotpassword');
   Route::post('/user/resetpassword','Auth\ResetPasswordController@newpassword');
+
+  Route::post('/user/message','MessageController@sendMessage');
 });
 
 Route::get('/loginv/dev', function() {

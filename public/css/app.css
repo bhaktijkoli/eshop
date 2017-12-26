@@ -22208,6 +22208,10 @@ li.fancybox-thumbs-loading {
   color: rgba(0, 0, 0, 0.87);
 }
 
+.btn {
+  min-width: 100px;
+}
+
 .select2-container {
   width: 100% !important;
 }
