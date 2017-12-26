@@ -15,7 +15,7 @@
   border-color: $brand-primary
 }
 .checkbox label {
-    color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.87);
 }
 .select2-container {
   width: 100% !important;
@@ -59,6 +59,10 @@
     background-color: #fcfcfa;
   }
 }
+.nav-pills > li > a {
+  text-align: left !important;
+}
+
 // SHADOW
 .z-depth {
   box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);

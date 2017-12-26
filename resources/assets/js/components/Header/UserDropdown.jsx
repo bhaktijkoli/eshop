@@ -21,10 +21,10 @@ class UserDropDown extends Component {
               </div>
             </a>
             <ul className="dropdown-menu">
-              <li><a href="#"><i className="fa fa-list-alt" aria-hidden="true">&nbsp;</i>My Ads</a></li>
-              <li><a href="#"><i className="fa fa-envelope" aria-hidden="true">&nbsp;</i>Messages</a></li>
-              <li><a href="#"><i className="fa fa-heart" aria-hidden="true"></i>&nbsp;Favourite Ads</a></li>
-              <li><a href="#"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
+              <li><Link to="/user/ads" href="#"><i className="fa fa-list-alt" aria-hidden="true">&nbsp;</i>My Ads</Link></li>
+              <li><Link to="/user/messages" href="#"><i className="fa fa-comments" aria-hidden="true">&nbsp;</i>Messages</Link></li>
+              <li><Link to="/user/favorites" href="#"><i className="fa fa-heart" aria-hidden="true"></i>&nbsp;Favourite Ads</Link></li>
+              <li><Link to="/user/settings"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;Settings</Link></li>
               <li><a href="/logout"><i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
             </ul>
           </li>

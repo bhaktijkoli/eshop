@@ -17,6 +17,7 @@ class UserController extends Controller
         $user["name"] = Auth::user()->name;
         $user["email"] = Auth::user()->email;
         $user["avatar"] = Auth::user()->avatar;
+        $user['datetime'] = Auth::user()->created_at->format('M j, Y');
       }
       return $user;
     }
