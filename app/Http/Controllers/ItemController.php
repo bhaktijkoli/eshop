@@ -82,6 +82,7 @@ class ItemController extends Controller
     $user = User::select('name','email','avatar','created_at')->where('id',$item->user_id)->first();
     if(!$user) return "";
     $user['datetime'] = $user->created_at->format('M j, Y');
+    $user['id'] = $item->user_id;
     $item['seller'] = $user;
     return $item;
   }

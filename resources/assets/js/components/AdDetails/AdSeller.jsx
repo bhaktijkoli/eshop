@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 import { connect } from "react-redux"
 
+import AdMessage from './AdMessage';
+
 class AdSeller extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,8 @@ class AdSeller extends Component {
                 <h5 className="media-heading">{seller.name}</h5>
                 <small>Member since {seller.datetime}</small>
               </div>
-              <button className="btn btn-primary btn-block"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
+              <button className="btn btn-primary btn-block" data-toggle="modal" data-target="#modelMessage"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
+              <AdMessage id="modelMessage" seller={seller}/>
             </div>
           </div>
         </div>

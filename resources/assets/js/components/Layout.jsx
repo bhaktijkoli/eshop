@@ -33,7 +33,7 @@ class Layout extends Component {
     }
     else {
       return(
-        <div className="wrapper animated fadeIn">
+        <div className="wrapper">
           <Header/>
           <Route exact path="/" component={Home}/>
           <Route exact path="/new-ad" component={NewAd}/>
