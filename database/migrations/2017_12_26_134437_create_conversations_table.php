@@ -15,7 +15,8 @@ class CreateConversationsTable extends Migration
     {
         Schema::create('conversations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user1');
+            $table->integer('user2');
             $table->integer('item_id');
             $table->integer('cid');
             $table->timestamps();

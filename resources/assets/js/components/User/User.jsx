@@ -3,6 +3,7 @@ import { Route, withRouter, Link  } from 'react-router-dom';
 import { connect } from "react-redux"
 
 import Settings from './Settings'
+import Messages from './Messages'
 
 class User extends Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class User extends Component {
                 <div id="ads" className={this.getTabClassName('ads')}>
                 </div>
                 <div id="messages" className={this.getTabClassName('messages')}>
+                  <Messages/>
                 </div>
                 <div id="favorites" className={this.getTabClassName('favorites')}>
                 </div>

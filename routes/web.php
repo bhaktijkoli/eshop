@@ -14,7 +14,7 @@
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
 Route::view('/ad/{adurl}', 'index');
-Route::view('/login', 'index');
+Route::view('/login', 'index')->name('login');
 Route::view('/register', 'index');
 Route::view('/forgotpassword', 'index');
 Route::view('/user/{settings}', 'index');
@@ -41,6 +41,7 @@ Route::prefix('api')->group(function () {
   Route::post('/user/resetpassword','Auth\ResetPasswordController@newpassword');
 
   Route::post('/user/message','MessageController@sendMessage');
+  Route::get('/user/get/coversations','MessageController@getCoversations');
 });
 
 Route::get('/loginv/dev', function() {

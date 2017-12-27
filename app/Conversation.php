@@ -10,9 +10,11 @@ class Conversation extends Model
   public $timestamps = true;
 
   public static function get($id1, $id2, $item_id) {
-    $con = Conversation::where('user_id',$id1)->where('item_id',$item_id)->first();
+    $con = Conversation::where('user1',$id1)->where('item_id',$item_id)->first();
     if($con) return $con->cid;
-    return Self::new($id1, $id2, $item_1);
+    $con = Conversation::where('user2',$id1)->where('item_id',$item_id)->first();
+    if($con) return $con->cid;
+    return Self::new($id1, $id2, $item_id);
   }
 
   public static function new($id1, $id2, $item_id)
@@ -21,13 +23,8 @@ class Conversation extends Model
 
     $con = new Conversation();
     $con->cid = $con_id;
-    $con->user_id = $id1;
-    $con->item_id = $item_id;
-    $con->save();
-
-    $con = new Conversation();
-    $con->cid = $con_id;
-    $con->user_id = $id2;
+    $con->user1 = $id1;
+    $con->user2 = $id2;
     $con->item_id = $item_id;
     $con->save();
 

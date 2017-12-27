@@ -22603,6 +22603,35 @@ body {
   margin-bottom: -20px;
 }
 
+.conversation-list {
+  cursor: default;
+  display: block;
+  padding: 10px;
+}
+
+.conversation-list:hover {
+  background-color: #cecdcd40;
+}
+
+.conversation-list .name {
+  color: #2196f3;
+}
+
+.conversation-list .message-body {
+  display: inline-block;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+@media only screen and (max-width: 768px) {
+  .conversation-list .message-body {
+    max-width: 150px;
+  }
+}
+
 #adCarousel {
   width: 100%;
   height: 450px;
