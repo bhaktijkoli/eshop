@@ -55875,12 +55875,6 @@ var UserDropDown = function (_Component) {
   }
 
   _createClass(UserDropDown, [{
-    key: 'onImageLoadFail',
-    value: function onImageLoadFail() {
-      alert("Working");
-      console.log(this.props.refs);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var auth = this.props.auth;
@@ -55908,12 +55902,17 @@ var UserDropDown = function (_Component) {
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'profile-photo-small' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { ref: 'avatar', src: user.avatar, alt: 'Circle Image', className: 'img-circle img-responsive', onError: this.onImageLoadFail.bind(this) })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { ref: 'avatar', src: user.avatar, alt: 'Circle Image', className: 'img-circle img-responsive' })
               )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'ul',
               { className: 'dropdown-menu' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'li',
+                { className: 'dropdown-header' },
+                auth.user.name
+              ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'li',
                 null,
@@ -55991,6 +55990,11 @@ var UserDropDown = function (_Component) {
           )
         );
       }
+    }
+  }, {
+    key: 'avatarError',
+    value: function avatarError() {
+      alert("error !");
     }
   }]);
 

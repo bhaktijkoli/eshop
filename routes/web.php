@@ -45,7 +45,7 @@ Route::prefix('api')->group(function () {
 });
 
 Route::get('/loginv/dev', function() {
-  $user = App\User::where('facebook',null)->inRandomOrder()->first();
+  $user = App\User::where('facebook',null)->where('google',null)->where('twitter',null)->inRandomOrder()->first();
   Auth::login($user);
   return redirect()->route('home');
 });

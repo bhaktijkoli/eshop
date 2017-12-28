@@ -81,6 +81,7 @@ class ItemController extends Controller
     $item['images'] = $images;
     $user = User::select('name','email','avatar','created_at')->where('id',$item->user_id)->first();
     if(!$user) return "";
+    $user['avatar'] = User::validateAvatar($user->avatar);
     $user['datetime'] = $user->created_at->format('M j, Y');
     $user['id'] = $item->user_id;
     $item['seller'] = $user;

@@ -3,10 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from "react-redux"
 
 class UserDropDown extends Component {
-  onImageLoadFail() {
-    alert("Working");
-    console.log(this.props.refs);
-  }
   render() {
     const auth = this.props.auth;
     if(auth.check == 1) {
@@ -17,10 +13,11 @@ class UserDropDown extends Component {
           <li className="dropdown">
             <a className="profile-photo dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               <div className="profile-photo-small">
-                <img ref="avatar" src={user.avatar} alt="Circle Image" className="img-circle img-responsive" onError={this.onImageLoadFail.bind(this)}/>
+                <img ref="avatar" src={user.avatar} alt="Circle Image" className="img-circle img-responsive"/>
               </div>
             </a>
             <ul className="dropdown-menu">
+              <li className="dropdown-header">{auth.user.name}</li>
               <li><Link to="/user/ads" href="#"><i className="fa fa-list-alt" aria-hidden="true">&nbsp;</i>My Ads</Link></li>
               <li><Link to="/user/messages" href="#"><i className="fa fa-comments" aria-hidden="true">&nbsp;</i>Messages</Link></li>
               <li><Link to="/user/favorites" href="#"><i className="fa fa-heart" aria-hidden="true"></i>&nbsp;Favourite Ads</Link></li>
@@ -38,6 +35,9 @@ class UserDropDown extends Component {
         </ul>
       );
     }
+  }
+  avatarError() {
+    alert("error !");
   }
 }
 function mapStateToProps(state) {
