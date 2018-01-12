@@ -11,7 +11,6 @@ class Favorites extends Component {
   componentDidMount() {
     axios.get('/api/user/favorites/get')
     .then(function (response) {
-      console.log(response.data);
       this.setState({list:response.data});
     }.bind(this));
   }
@@ -46,7 +45,7 @@ class Favorites extends Component {
                     <td><i className="fa fa-inr" aria-hidden="true"></i>&nbsp;{item.price}</td>
                     <td>
                       <Link to={this.getUrl(item.url)} className="btn btn-info btn-sm"><i className="fa fa-eye" aria-hidden="true"></i></Link><br/>
-                      <a className="btn btn-danger btn-sm"><i className="fa fa-trash-o" aria-hidden="true"></i></a><br/>
+                      <a onClick={()=>{this.removeItem(item)}} className="btn btn-danger btn-sm"><i className="fa fa-trash-o" aria-hidden="true"></i></a><br/>
                     </td>
                   </tr>
                 )}
@@ -59,6 +58,10 @@ class Favorites extends Component {
   }
   getUrl(url) {
     return "/ad/" + url;
+  }
+  removeItem(item) {
+    axios.post('/api/user/favorite/toggle', {id:item.id})
+    this.componentDidMount();
   }
 }
 

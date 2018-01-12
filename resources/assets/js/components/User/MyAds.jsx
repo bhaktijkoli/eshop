@@ -11,7 +11,6 @@ class MyAds extends Component {
   componentDidMount() {
     axios.get('/api/user/get/ads')
     .then(function (response) {
-      console.log(response.data);
       this.setState({list:response.data});
     }.bind(this));
   }

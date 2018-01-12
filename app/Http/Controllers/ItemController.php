@@ -40,7 +40,6 @@ class ItemController extends Controller
       $item['favorite'] = 1;
       else
       $item['favorite'] = 0;
-      $item->id = $no++;
     }
     return $items;
   }
@@ -104,7 +103,6 @@ class ItemController extends Controller
       }
       $item->category = Category::where("id",$item->category)->first()->name;
       $item['datetime'] = $item->created_at->diffForHumans();
-      $item->id = $no++;
     }
     return $items;
   }

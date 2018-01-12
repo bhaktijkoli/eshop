@@ -46,7 +46,6 @@ class FavoriteController extends Controller
       }
       $item->category = Category::where("id",$item->category)->first()->name;
       $item['datetime'] = $item->created_at->diffForHumans();
-      $item->id = $no++;
       array_push($items, $item);
     }
     return $items;
