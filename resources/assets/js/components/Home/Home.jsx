@@ -5,6 +5,7 @@ import FlashMessages from './../FlashMessages';
 
 import HomeSearchForm from './HomeSearchForm';
 import AdList from './AdList';
+import Categories from './Categories';
 
 class Home extends Component {
   constructor(props) {
