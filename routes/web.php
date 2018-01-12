@@ -44,6 +44,9 @@ Route::prefix('api')->group(function () {
   Route::get('/user/get/coversations','MessageController@getCoversations');
 
   Route::get('/user/get/ads','ItemController@getUserItems');
+
+  Route::get('/user/favorites/get','FavoriteController@get');
+  Route::post('/user/favorite/toggle','FavoriteController@toggle');
 });
 
 Route::get('/loginv/dev', function() {

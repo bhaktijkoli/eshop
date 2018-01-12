@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Settings from './Settings'
 import Messages from './Messages'
 import MyAds from './MyAds'
+import Favorites from './Favorites'
 
 class User extends Component {
   constructor(props) {
@@ -57,6 +58,7 @@ class User extends Component {
                   <Messages/>
                 </div>
                 <div id="favorites" className={this.getTabClassName('favorites')}>
+                  <Favorites/>
                 </div>
                 <div id="settings" className={this.getTabClassName('settings')}>
                   <Settings/>

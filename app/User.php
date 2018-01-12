@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Auth;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -45,5 +47,11 @@ class User extends Authenticatable
       return "/images/avatar.jpg";
     }
     return $avatar;
+  }
+
+  public static function getID()
+  {
+    if(Auth::check()) return Auth::user()->id;
+    return -1;
   }
 }

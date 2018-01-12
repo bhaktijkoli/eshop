@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter  } from 'react-router-dom';
 
-class MyAds extends Component {
+class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,7 +9,7 @@ class MyAds extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/api/user/get/ads')
+    axios.get('/api/user/favorites/get')
     .then(function (response) {
       console.log(response.data);
       this.setState({list:response.data});
@@ -20,7 +20,7 @@ class MyAds extends Component {
     return(
       <div className="card">
         <div className="card-heading">
-          <h3 className="card-title">My Ads</h3>
+          <h3 className="card-title">My Favorites</h3>
           <hr/>
         </div>
         <div className="card-body nopadding">
@@ -46,7 +46,6 @@ class MyAds extends Component {
                     <td><i className="fa fa-inr" aria-hidden="true"></i>&nbsp;{item.price}</td>
                     <td>
                       <Link to={this.getUrl(item.url)} className="btn btn-info btn-sm"><i className="fa fa-eye" aria-hidden="true"></i></Link><br/>
-                      <a className="btn btn-warning btn-sm"><i className="fa fa-pencil" aria-hidden="true"></i></a><br/>
                       <a className="btn btn-danger btn-sm"><i className="fa fa-trash-o" aria-hidden="true"></i></a><br/>
                     </td>
                   </tr>
@@ -63,4 +62,4 @@ class MyAds extends Component {
   }
 }
 
-export default withRouter(MyAds);
+export default withRouter(Favorites);

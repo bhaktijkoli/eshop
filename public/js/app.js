@@ -56289,6 +56289,8 @@ var AdList = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       if (this.props.loading == true) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Spinner__["a" /* default */], null);
       } else {
@@ -56314,7 +56316,9 @@ var AdList = function (_Component) {
                   price: item.price,
                   negotiable: item.negotiable,
                   datetime: item.datetime,
-                  url: item.url
+                  url: item.url,
+                  favorite: item.favorite,
+                  auth: _this2.props.auth.check
                 })
               );
             })
@@ -56402,7 +56406,7 @@ var Ad = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Ad.__proto__ || Object.getPrototypeOf(Ad)).call(this, props));
 
-    _this.state = { itemClass: 'hidden' };
+    _this.state = { itemClass: 'hidden', favorite: _this.props.favorite };
     return _this;
   }
 
@@ -56478,7 +56482,7 @@ var Ad = function (_Component) {
                 { className: 'action' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'a',
-                  { className: 'btn btn-white btn-xs btn-round' },
+                  { onClick: this.handleFavorite.bind(this), className: this.state.favorite == 1 ? "btn btn-xs btn-round btn-danger" : "btn btn-xs btn-round btn-white" },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-heart-o', 'aria-hidden': 'true' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -56522,6 +56526,16 @@ var Ad = function (_Component) {
     key: 'getUrl',
     value: function getUrl() {
       return "/ad/" + this.props.url;
+    }
+  }, {
+    key: 'handleFavorite',
+    value: function handleFavorite() {
+      if (this.props.auth == 1) {
+        axios.post('/api/user/favorite/toggle', { id: this.props.item_id });
+        this.setState({ favorite: !this.state.favorite });
+      } else {
+        this.props.history.push('/login');
+      }
     }
   }]);
 
@@ -57938,6 +57952,7 @@ var FormLogin = function (_Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Settings__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Messages__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__MyAds__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Favorites__ = __webpack_require__(365);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57945,6 +57960,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -58088,7 +58104,11 @@ var User = function (_Component) {
                   { id: 'messages', className: this.getTabClassName('messages') },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Messages__["a" /* default */], null)
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'favorites', className: this.getTabClassName('favorites') }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'div',
+                  { id: 'favorites', className: this.getTabClassName('favorites') },
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__Favorites__["a" /* default */], null)
+                ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   { id: 'settings', className: this.getTabClassName('settings') },
@@ -58496,7 +58516,7 @@ var MyAds = function (_Component) {
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                           'small',
                           null,
-                          item.datetime
+                          '0'
                         )
                       )
                     ),
@@ -59535,6 +59555,206 @@ function reducer() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(4);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+var Favorites = function (_Component) {
+  _inherits(Favorites, _Component);
+
+  function Favorites(props) {
+    _classCallCheck(this, Favorites);
+
+    var _this = _possibleConstructorReturn(this, (Favorites.__proto__ || Object.getPrototypeOf(Favorites)).call(this, props));
+
+    _this.state = {
+      list: []
+    };
+    return _this;
+  }
+
+  _createClass(Favorites, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      axios.get('/api/user/favorites/get').then(function (response) {
+        console.log(response.data);
+        this.setState({ list: response.data });
+      }.bind(this));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var no = 0;
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'card' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'card-heading' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h3',
+            { className: 'card-title' },
+            'My Favorites'
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'card-body nopadding' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'table-responsive' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'table',
+              { className: 'table table-striped ads-list' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'thead',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  'tr',
+                  null,
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'th',
+                    { width: '20%' },
+                    'Photo'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'th',
+                    { width: '40%' },
+                    'Details'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'th',
+                    { width: '20%' },
+                    'Price'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'th',
+                    { width: '20%' },
+                    'Actions'
+                  )
+                )
+              ),
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'tbody',
+                null,
+                this.state.list.map(function (item) {
+                  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'tr',
+                    { key: no++ },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'td',
+                      null,
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: item.thumb, width: '174' })
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'td',
+                      null,
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { className: 'title' },
+                        item.title
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { className: 'details' },
+                        'Posted: ',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          'small',
+                          null,
+                          item.datetime
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        { className: 'details' },
+                        'Views: ',
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          'small',
+                          null,
+                          '0'
+                        )
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'td',
+                      null,
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-inr', 'aria-hidden': 'true' }),
+                      '\xA0',
+                      item.price
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      'td',
+                      null,
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                        { to: _this2.getUrl(item.url), className: 'btn btn-info btn-sm' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-eye', 'aria-hidden': 'true' })
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'a',
+                        { className: 'btn btn-danger btn-sm' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-trash-o', 'aria-hidden': 'true' })
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null)
+                    )
+                  );
+                })
+              )
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: 'getUrl',
+    value: function getUrl(url) {
+      return "/ad/" + url;
+    }
+  }]);
+
+  return Favorites;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Favorites));
 
 /***/ })
 /******/ ]);

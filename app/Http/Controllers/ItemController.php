@@ -10,6 +10,7 @@ use App\User;
 use App\Item;
 use App\ItemImage;
 use App\Category;
+use App\Favorite;
 use App\ResponseBuilder;
 
 class ItemController extends Controller
@@ -28,7 +29,6 @@ class ItemController extends Controller
     // $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->get();
     $no=1;
     foreach ($items as &$item) {
-      $item->id = $no++;
       $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
       if($image) {
         $item->image = $image->getUrl();
@@ -36,6 +36,11 @@ class ItemController extends Controller
       }
       $item->category = Category::where("id",$item->category)->first()->name;
       $item['datetime'] = $item->created_at->diffForHumans();
+      if(Favorite::where('user_id', User::getID())->where('item_id', $item->id)->first())
+      $item['favorite'] = 1;
+      else
+      $item['favorite'] = 0;
+      $item->id = $no++;
     }
     return $items;
   }
@@ -92,7 +97,6 @@ class ItemController extends Controller
     $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('user_id', Auth::user()->id)->get();
     $no=1;
     foreach ($items as &$item) {
-      $item->id = $no++;
       $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
       if($image) {
         $item->image = $image->getUrl();
@@ -100,6 +104,7 @@ class ItemController extends Controller
       }
       $item->category = Category::where("id",$item->category)->first()->name;
       $item['datetime'] = $item->created_at->diffForHumans();
+      $item->id = $no++;
     }
     return $items;
   }

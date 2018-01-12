@@ -4,7 +4,7 @@ import { Route, withRouter, Link } from 'react-router-dom';
 class Ad extends Component {
   constructor(props) {
     super(props);
-    this.state={itemClass:'hidden'};
+    this.state={itemClass:'hidden',favorite:this.props.favorite};
   }
   componentDidMount() {
     $.material.init();
@@ -31,8 +31,8 @@ class Ad extends Component {
             <div className="footer">
               <small><i className="fa fa-clock-o" aria-hidden="true">&nbsp;</i>{this.props.datetime}</small>
               <div className="action">
-                  <a className="btn btn-white btn-xs btn-round"><i className="fa fa-heart-o" aria-hidden="true"></i></a>
-                  <Link to={this.getUrl()} className="btn btn-info btn-xs btn-round">Details</Link>
+                <a onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-xs btn-round btn-danger":"btn btn-xs btn-round btn-white"}><i className="fa fa-heart-o" aria-hidden="true"></i></a>
+                <Link to={this.getUrl()} className="btn btn-info btn-xs btn-round">Details</Link>
               </div>
             </div>
           </div>
@@ -54,6 +54,15 @@ class Ad extends Component {
   }
   getUrl() {
     return "/ad/" + this.props.url;
+  }
+  handleFavorite()
+  {
+    if(this.props.auth == 1) {
+      axios.post('/api/user/favorite/toggle', {id:this.props.item_id})
+      this.setState({favorite:!this.state.favorite});
+    } else {
+      this.props.history.push('/login');
+    }
   }
 }
 

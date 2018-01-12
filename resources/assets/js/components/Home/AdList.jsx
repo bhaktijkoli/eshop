@@ -34,6 +34,8 @@ class AdList extends Component {
                   negotiable={item.negotiable}
                   datetime={item.datetime}
                   url={item.url}
+                  favorite={item.favorite}
+                  auth={this.props.auth.check}
                 />
               </div>
             )}
