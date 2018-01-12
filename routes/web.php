@@ -42,6 +42,8 @@ Route::prefix('api')->group(function () {
 
   Route::post('/user/message','MessageController@sendMessage');
   Route::get('/user/get/coversations','MessageController@getCoversations');
+
+  Route::get('/user/get/ads','ItemController@getUserItems');
 });
 
 Route::get('/loginv/dev', function() {

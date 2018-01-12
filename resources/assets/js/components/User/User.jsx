@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 
 import Settings from './Settings'
 import Messages from './Messages'
+import MyAds from './MyAds'
 
 class User extends Component {
   constructor(props) {
@@ -50,6 +51,7 @@ class User extends Component {
             <div className="col-sm-9">
               <div className="tab-content">
                 <div id="ads" className={this.getTabClassName('ads')}>
+                  <MyAds/>
                 </div>
                 <div id="messages" className={this.getTabClassName('messages')}>
                   <Messages/>

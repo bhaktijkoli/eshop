@@ -22646,3 +22646,29 @@ body {
   width: 15% !important;
 }
 
+.ads-list .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.ads-list .details {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.ads-list .details small {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.ads-list .btn {
+  margin: 5px;
+}
+

@@ -87,4 +87,20 @@ class ItemController extends Controller
     $item['seller'] = $user;
     return $item;
   }
+
+  public function getUserItems() {
+    $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('user_id', Auth::user()->id)->get();
+    $no=1;
+    foreach ($items as &$item) {
+      $item->id = $no++;
+      $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
+      if($image) {
+        $item->image = $image->getUrl();
+        $item->thumb = $image->getThumb();
+      }
+      $item->category = Category::where("id",$item->category)->first()->name;
+      $item['datetime'] = $item->created_at->diffForHumans();
+    }
+    return $items;
+  }
 }
