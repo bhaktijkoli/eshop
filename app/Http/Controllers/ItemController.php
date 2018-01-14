@@ -29,17 +29,7 @@ class ItemController extends Controller
     // $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->get();
     $no=1;
     foreach ($items as &$item) {
-      $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
-      if($image) {
-        $item->image = $image->getUrl();
-        $item->thumb = $image->getThumb();
-      }
-      $item->category = Category::where("id",$item->category)->first()->name;
-      $item['datetime'] = $item->created_at->diffForHumans();
-      if(Favorite::where('user_id', User::getID())->where('item_id', $item->id)->first())
-      $item['favorite'] = 1;
-      else
-      $item['favorite'] = 0;
+      $item->formatResponse();
     }
     return $items;
   }
@@ -75,8 +65,7 @@ class ItemController extends Controller
   public function getItem($url) {
     $item = Item::select("id",'user_id',"title","description","price","negotiable","category","url","created_at")->where('url',$url)->first();
     if(!$item) return "";
-    $item->category = Category::where("id",$item->category)->first()->name;
-    $item['datetime'] = $item->created_at->diffForHumans();
+    $item->formatResponse();
     $imagesAll = ItemImage::where('item_id',$item->id)->get();
     $images = [];
     foreach ($imagesAll as $image) {
@@ -96,13 +85,7 @@ class ItemController extends Controller
     $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('user_id', Auth::user()->id)->get();
     $no=1;
     foreach ($items as &$item) {
-      $image = ItemImage::where("item_id",$item->id)->where("cover","1")->first();
-      if($image) {
-        $item->image = $image->getUrl();
-        $item->thumb = $image->getThumb();
-      }
-      $item->category = Category::where("id",$item->category)->first()->name;
-      $item['datetime'] = $item->created_at->diffForHumans();
+      $item->formatResponse();
     }
     return $items;
   }

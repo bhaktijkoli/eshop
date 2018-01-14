@@ -7,9 +7,7 @@ import AdMessage from './AdMessage';
 class AdSeller extends Component {
   constructor(props) {
     super(props);
-  }
-  componentDidMount() {
-    $.material.init();
+    this.state={'favorite':this.props.item.favorite}
   }
   render() {
     const seller = this.props.item.seller;
@@ -21,7 +19,7 @@ class AdSeller extends Component {
             <hr/>
           </div>
           <div className="card-body nopadding">
-          <Link to="/login" className="btn btn-primary btn-block"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</Link>
+            <Link to="/login" className="btn btn-primary btn-block"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</Link>
           </div>
         </div>
       );
@@ -43,12 +41,18 @@ class AdSeller extends Component {
                 <small>Member since {seller.datetime}</small>
               </div>
               <button className="btn btn-primary btn-block" data-toggle="modal" data-target="#modelMessage"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
+              <button onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-block btn-fav":"btn btn-block btn-primary"}><i className={this.state.favorite==1?"fa fa-heart":"fa fa-heart-o"} aria-hidden="true"></i>&nbsp;&nbsp;Favorites</button>
               <AdMessage id="modelMessage" item={this.props.item}/>
             </div>
           </div>
         </div>
       );
     }
+  }
+  handleFavorite()
+  {
+    axios.post('/api/user/favorite/toggle', {id:this.props.item.id})
+    this.setState({favorite:!this.state.favorite});
   }
 }
 

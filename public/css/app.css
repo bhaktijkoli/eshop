@@ -4227,67 +4227,96 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #fff;
 }
 
-.btn-danger {
+.btn-danger,
+.btn-fav {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
 }
 
 .btn-danger:focus,
-.btn-danger.focus {
+.btn-fav:focus,
+.btn-danger.focus,
+.focus.btn-fav {
   color: #fff;
   background-color: #c9302c;
   border-color: #761c19;
 }
 
-.btn-danger:hover {
+.btn-danger:hover,
+.btn-fav:hover {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
 
 .btn-danger:active,
+.btn-fav:active,
 .btn-danger.active,
-.open > .dropdown-toggle.btn-danger {
+.active.btn-fav,
+.open > .dropdown-toggle.btn-danger,
+.open > .dropdown-toggle.btn-fav {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
 
 .btn-danger:active:hover,
+.btn-fav:active:hover,
 .btn-danger.active:hover,
+.active.btn-fav:hover,
 .open > .dropdown-toggle.btn-danger:hover,
+.open > .dropdown-toggle.btn-fav:hover,
 .btn-danger:active:focus,
+.btn-fav:active:focus,
 .btn-danger.active:focus,
+.active.btn-fav:focus,
 .open > .dropdown-toggle.btn-danger:focus,
+.open > .dropdown-toggle.btn-fav:focus,
 .btn-danger:active.focus,
+.btn-fav:active.focus,
 .btn-danger.active.focus,
-.open > .dropdown-toggle.btn-danger.focus {
+.active.focus.btn-fav,
+.open > .dropdown-toggle.btn-danger.focus,
+.open > .dropdown-toggle.focus.btn-fav {
   color: #fff;
   background-color: #ac2925;
   border-color: #761c19;
 }
 
 .btn-danger:active,
+.btn-fav:active,
 .btn-danger.active,
-.open > .dropdown-toggle.btn-danger {
+.active.btn-fav,
+.open > .dropdown-toggle.btn-danger,
+.open > .dropdown-toggle.btn-fav {
   background-image: none;
 }
 
 .btn-danger.disabled:hover,
+.disabled.btn-fav:hover,
 .btn-danger[disabled]:hover,
+[disabled].btn-fav:hover,
 fieldset[disabled] .btn-danger:hover,
+fieldset[disabled] .btn-fav:hover,
 .btn-danger.disabled:focus,
+.disabled.btn-fav:focus,
 .btn-danger[disabled]:focus,
+[disabled].btn-fav:focus,
 fieldset[disabled] .btn-danger:focus,
+fieldset[disabled] .btn-fav:focus,
 .btn-danger.disabled.focus,
+.disabled.focus.btn-fav,
 .btn-danger[disabled].focus,
-fieldset[disabled] .btn-danger.focus {
+[disabled].focus.btn-fav,
+fieldset[disabled] .btn-danger.focus,
+fieldset[disabled] .focus.btn-fav {
   background-color: #d9534f;
   border-color: #d43f3a;
 }
 
-.btn-danger .badge {
+.btn-danger .badge,
+.btn-fav .badge {
   color: #d9534f;
   background-color: #fff;
 }
@@ -12149,112 +12178,203 @@ fieldset[disabled]
 }
 
 .btn.btn-danger,
-.navbar .navbar-nav > li > a.btn.btn-danger {
+.btn.btn-fav,
+.navbar .navbar-nav > li > a.btn.btn-danger,
+.navbar .navbar-nav > li > a.btn.btn-fav {
   -webkit-box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
           box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
 }
 
 .btn.btn-danger,
+.btn.btn-fav,
 .btn.btn-danger:hover,
+.btn.btn-fav:hover,
 .btn.btn-danger:focus,
+.btn.btn-fav:focus,
 .btn.btn-danger:active,
+.btn.btn-fav:active,
 .btn.btn-danger.active,
+.btn.active.btn-fav,
 .btn.btn-danger:active:focus,
+.btn.btn-fav:active:focus,
 .btn.btn-danger:active:hover,
+.btn.btn-fav:active:hover,
 .btn.btn-danger.active:focus,
+.btn.active.btn-fav:focus,
 .btn.btn-danger.active:hover,
+.btn.active.btn-fav:hover,
 .open > .btn.btn-danger.dropdown-toggle,
+.open > .btn.dropdown-toggle.btn-fav,
 .open > .btn.btn-danger.dropdown-toggle:focus,
+.open > .btn.dropdown-toggle.btn-fav:focus,
 .open > .btn.btn-danger.dropdown-toggle:hover,
+.open > .btn.dropdown-toggle.btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger,
+.navbar .navbar-nav > li > a.btn.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger:hover,
+.navbar .navbar-nav > li > a.btn.btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger:focus,
+.navbar .navbar-nav > li > a.btn.btn-fav:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger:active,
+.navbar .navbar-nav > li > a.btn.btn-fav:active,
 .navbar .navbar-nav > li > a.btn.btn-danger.active,
+.navbar .navbar-nav > li > a.btn.active.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger:active:focus,
+.navbar .navbar-nav > li > a.btn.btn-fav:active:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger:active:hover,
+.navbar .navbar-nav > li > a.btn.btn-fav:active:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger.active:focus,
+.navbar .navbar-nav > li > a.btn.active.btn-fav:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger.active:hover,
+.navbar .navbar-nav > li > a.btn.active.btn-fav:hover,
 .open >
 .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle,
 .open >
+.navbar .navbar-nav > li > a.btn.dropdown-toggle.btn-fav,
+.open >
 .navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:focus,
 .open >
-.navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover {
+.navbar .navbar-nav > li > a.btn.dropdown-toggle.btn-fav:focus,
+.open >
+.navbar .navbar-nav > li > a.btn.btn-danger.dropdown-toggle:hover,
+.open >
+.navbar .navbar-nav > li > a.btn.dropdown-toggle.btn-fav:hover {
   background-color: #f44336;
   color: #FFFFFF;
 }
 
 .btn.btn-danger:focus,
+.btn.btn-fav:focus,
 .btn.btn-danger:active,
+.btn.btn-fav:active,
 .btn.btn-danger:hover,
+.btn.btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger:focus,
+.navbar .navbar-nav > li > a.btn.btn-fav:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger:active,
-.navbar .navbar-nav > li > a.btn.btn-danger:hover {
+.navbar .navbar-nav > li > a.btn.btn-fav:active,
+.navbar .navbar-nav > li > a.btn.btn-danger:hover,
+.navbar .navbar-nav > li > a.btn.btn-fav:hover {
   -webkit-box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
           box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
 }
 
 .btn.btn-danger.disabled,
+.btn.disabled.btn-fav,
 .btn.btn-danger.disabled:hover,
+.btn.disabled.btn-fav:hover,
 .btn.btn-danger.disabled:focus,
+.btn.disabled.btn-fav:focus,
 .btn.btn-danger.disabled.focus,
+.btn.disabled.focus.btn-fav,
 .btn.btn-danger.disabled:active,
+.btn.disabled.btn-fav:active,
 .btn.btn-danger.disabled.active,
+.btn.disabled.active.btn-fav,
 .btn.btn-danger:disabled,
+.btn.btn-fav:disabled,
 .btn.btn-danger:disabled:hover,
+.btn.btn-fav:disabled:hover,
 .btn.btn-danger:disabled:focus,
+.btn.btn-fav:disabled:focus,
 .btn.btn-danger:disabled.focus,
+.btn.btn-fav:disabled.focus,
 .btn.btn-danger:disabled:active,
+.btn.btn-fav:disabled:active,
 .btn.btn-danger:disabled.active,
+.btn.btn-fav:disabled.active,
 .btn.btn-danger[disabled],
+.btn[disabled].btn-fav,
 .btn.btn-danger[disabled]:hover,
+.btn[disabled].btn-fav:hover,
 .btn.btn-danger[disabled]:focus,
+.btn[disabled].btn-fav:focus,
 .btn.btn-danger[disabled].focus,
+.btn[disabled].focus.btn-fav,
 .btn.btn-danger[disabled]:active,
+.btn[disabled].btn-fav:active,
 .btn.btn-danger[disabled].active,
+.btn[disabled].active.btn-fav,
 fieldset[disabled] .btn.btn-danger,
+fieldset[disabled] .btn.btn-fav,
 fieldset[disabled] .btn.btn-danger:hover,
+fieldset[disabled] .btn.btn-fav:hover,
 fieldset[disabled] .btn.btn-danger:focus,
+fieldset[disabled] .btn.btn-fav:focus,
 fieldset[disabled] .btn.btn-danger.focus,
+fieldset[disabled] .btn.focus.btn-fav,
 fieldset[disabled] .btn.btn-danger:active,
+fieldset[disabled] .btn.btn-fav:active,
 fieldset[disabled] .btn.btn-danger.active,
+fieldset[disabled] .btn.active.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled,
+.navbar .navbar-nav > li > a.btn.disabled.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled:hover,
+.navbar .navbar-nav > li > a.btn.disabled.btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled:focus,
+.navbar .navbar-nav > li > a.btn.disabled.btn-fav:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled.focus,
+.navbar .navbar-nav > li > a.btn.disabled.focus.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled:active,
+.navbar .navbar-nav > li > a.btn.disabled.btn-fav:active,
 .navbar .navbar-nav > li > a.btn.btn-danger.disabled.active,
+.navbar .navbar-nav > li > a.btn.disabled.active.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled:hover,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled:focus,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled.focus,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled.focus,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled:active,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled:active,
 .navbar .navbar-nav > li > a.btn.btn-danger:disabled.active,
+.navbar .navbar-nav > li > a.btn.btn-fav:disabled.active,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled],
+.navbar .navbar-nav > li > a.btn[disabled].btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:hover,
+.navbar .navbar-nav > li > a.btn[disabled].btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:focus,
+.navbar .navbar-nav > li > a.btn[disabled].btn-fav:focus,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled].focus,
+.navbar .navbar-nav > li > a.btn[disabled].focus.btn-fav,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled]:active,
+.navbar .navbar-nav > li > a.btn[disabled].btn-fav:active,
 .navbar .navbar-nav > li > a.btn.btn-danger[disabled].active,
+.navbar .navbar-nav > li > a.btn[disabled].active.btn-fav,
 fieldset[disabled]
 .navbar .navbar-nav > li > a.btn.btn-danger,
 fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.btn-fav,
+fieldset[disabled]
 .navbar .navbar-nav > li > a.btn.btn-danger:hover,
+fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.btn-fav:hover,
 fieldset[disabled]
 .navbar .navbar-nav > li > a.btn.btn-danger:focus,
 fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.btn-fav:focus,
+fieldset[disabled]
 .navbar .navbar-nav > li > a.btn.btn-danger.focus,
+fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.focus.btn-fav,
 fieldset[disabled]
 .navbar .navbar-nav > li > a.btn.btn-danger:active,
 fieldset[disabled]
-.navbar .navbar-nav > li > a.btn.btn-danger.active {
+.navbar .navbar-nav > li > a.btn.btn-fav:active,
+fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.btn-danger.active,
+fieldset[disabled]
+.navbar .navbar-nav > li > a.btn.active.btn-fav {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
 .btn.btn-danger.btn-simple,
-.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple {
+.btn.btn-simple.btn-fav,
+.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple,
+.navbar .navbar-nav > li > a.btn.btn-simple.btn-fav {
   background-color: transparent;
   color: #f44336;
   -webkit-box-shadow: none;
@@ -12262,11 +12382,17 @@ fieldset[disabled]
 }
 
 .btn.btn-danger.btn-simple:hover,
+.btn.btn-simple.btn-fav:hover,
 .btn.btn-danger.btn-simple:focus,
+.btn.btn-simple.btn-fav:focus,
 .btn.btn-danger.btn-simple:active,
+.btn.btn-simple.btn-fav:active,
 .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:hover,
+.navbar .navbar-nav > li > a.btn.btn-simple.btn-fav:hover,
 .navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:focus,
-.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:active {
+.navbar .navbar-nav > li > a.btn.btn-simple.btn-fav:focus,
+.navbar .navbar-nav > li > a.btn.btn-danger.btn-simple:active,
+.navbar .navbar-nav > li > a.btn.btn-simple.btn-fav:active {
   background-color: transparent;
   color: #f44336;
 }
@@ -12607,7 +12733,9 @@ fieldset[disabled]
 }
 
 .btn-group.open > .dropdown-toggle.btn.btn-danger,
-.btn-group-vertical.open > .dropdown-toggle.btn.btn-danger {
+.btn-group.open > .dropdown-toggle.btn.btn-fav,
+.btn-group-vertical.open > .dropdown-toggle.btn.btn-danger,
+.btn-group-vertical.open > .dropdown-toggle.btn.btn-fav {
   background-color: #f44336;
 }
 
@@ -22295,6 +22423,10 @@ li.fancybox-thumbs-loading {
 .z-depth-5 {
   -webkit-box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 20px 14px rgba(0, 0, 0, 0.22);
           box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 20px 14px rgba(0, 0, 0, 0.22);
+}
+
+.btn-fav {
+  background-color: #F62459 !important;
 }
 
 .spinner {

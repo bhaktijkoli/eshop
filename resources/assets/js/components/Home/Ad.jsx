@@ -31,7 +31,7 @@ class Ad extends Component {
             <div className="footer">
               <small><i className="fa fa-clock-o" aria-hidden="true">&nbsp;</i>{this.props.datetime}</small>
               <div className="action">
-                <a onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-xs btn-round btn-danger":"btn btn-xs btn-round btn-white"}><i className="fa fa-heart-o" aria-hidden="true"></i></a>
+                <a onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-xs btn-round btn-fav":"btn btn-xs btn-round btn-white"}><i className={this.state.favorite==1?"fa fa-heart":"fa fa-heart-o"} aria-hidden="true"></i></a>
                 <Link to={this.getUrl()} className="btn btn-info btn-xs btn-round">Details</Link>
               </div>
             </div>
