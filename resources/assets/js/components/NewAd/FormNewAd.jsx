@@ -177,7 +177,9 @@ callValidate() {
         var data = response.data;
         console.log(data);
         if(fh.is_success(data)) {
-          comp.props.history.push("/");
+          modal.showModalDefault("Ad Submited","Your ad has been submited, and it will be avaible once it is approved. You can manage your pending ads from <a href='/user/pending'>here</a>.","Ok", function(){
+            comp.props.history.push("/");
+          });
         }
         else {
           fh.set_multierrors(data);

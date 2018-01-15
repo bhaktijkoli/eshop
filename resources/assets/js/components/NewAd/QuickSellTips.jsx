@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { withRouter, Link  } from 'react-router-dom';
 class QuickSellTips extends Component {
   constructor(props) {
     super(props);
@@ -26,4 +26,4 @@ class QuickSellTips extends Component {
   }
 }
 
-export default QuickSellTips;
+export default withRouter(QuickSellTips);

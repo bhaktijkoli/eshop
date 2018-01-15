@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Settings from './Settings'
 import Messages from './Messages'
 import MyAds from './MyAds'
+import Pending from './Pending'
 import Favorites from './Favorites'
 
 class User extends Component {
@@ -42,6 +43,7 @@ class User extends Component {
                 <div className="card-body">
                   <ul className="nav nav-pills nav-stacked">
                     <li className={this.getMenuClassName('ads')}><Link to="/user/ads"><span className="fa fa-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;My Ads</Link></li>
+                    <li className={this.getMenuClassName('pending')}><Link to="/user/pending"><span className="fa fa-hourglass" aria-hidden="true"></span>&nbsp;&nbsp;Pending Ads</Link></li>
                     <li className={this.getMenuClassName('messages')}><Link to="/user/messages"><span className="fa fa-comments" aria-hidden="true"></span>&nbsp;&nbsp;Messages</Link></li>
                     <li className={this.getMenuClassName('favorites')}><Link to="/user/favorites"><span className="fa fa-heart" aria-hidden="true"></span>&nbsp;&nbsp;Favourites</Link></li>
                     <li className={this.getMenuClassName('settings')}><Link to="/user/settings"><span className="fa fa-user" aria-hidden="true"></span>&nbsp;&nbsp;Settings</Link></li>
@@ -53,6 +55,9 @@ class User extends Component {
               <div className="tab-content">
                 <div id="ads" className={this.getTabClassName('ads')}>
                   <MyAds/>
+                </div>
+                <div id="ads" className={this.getTabClassName('pending')}>
+                  <Pending/>
                 </div>
                 <div id="messages" className={this.getTabClassName('messages')}>
                   <Messages/>

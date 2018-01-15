@@ -22,7 +22,7 @@ class CreateItemsTable extends Migration
       $table->integer('price');
       $table->string('url');
       $table->enum('negotiable',['0','1'])->default('0');
-      $table->enum("pending",[0,1])->default(1);
+      $table->enum("pending",[0,1])->default(0);
       $table->timestamps();
     });
   }
