@@ -17,7 +17,7 @@ class AdBuyerTips extends Component {
             <li>Meet seller at a public place</li>
             <li>Check the item before you buy</li>
             <li>Pay only after collecting the item</li>
-            <a href="#">Read more..</a>
+            <Link to="/tips">Read more..</Link>
           </ul>
         </div>
       </div>

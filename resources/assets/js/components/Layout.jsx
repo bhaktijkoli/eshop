@@ -12,6 +12,8 @@ import Register from './Register/Register.jsx';
 import ForgotPassword from './Login/ForgotPassword.jsx';
 import ResetPassword from './Login/ResetPassword.jsx';
 
+import Tips from './Tips/Tips.jsx';
+
 import Spinner from './Spinner.jsx';
 
 import {getAuthUser} from '../actions/authActions'
@@ -36,6 +38,7 @@ class Layout extends Component {
         <div className="wrapper">
           <Header/>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/tips" component={Tips}/>
           <Route exact path="/new-ad" component={NewAd}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/register" component={Register}/>

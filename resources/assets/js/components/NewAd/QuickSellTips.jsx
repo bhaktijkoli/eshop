@@ -18,7 +18,7 @@ class QuickSellTips extends Component {
             <li>Add nice photos to your ad</li>
             <li>Put a reasonable price</li>
             <li>Check the item before publish</li>
-            <a href="#">Read more..</a>
+            <Link to="/tips">Read more..</Link>
           </ul>
         </div>
       </div>

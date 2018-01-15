@@ -18,6 +18,7 @@ Route::view('/login', 'index')->name('login');
 Route::view('/register', 'index');
 Route::view('/forgotpassword', 'index');
 Route::view('/user/{settings}', 'index');
+Route::view('/tips', 'index');
 
 Route::get('/logout', 'Auth\Logincontroller@logout');
 Route::get('/user/verify', 'Auth\RegisterController@verify');
