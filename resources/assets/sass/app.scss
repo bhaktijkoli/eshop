@@ -108,11 +108,13 @@ body {
   color: white;
   font-weight: bold;
   margin: 0px;
+  margin-left: 20px;
 }
 .banner-search .subtitle {
   color: white;
   margin-top: 0px;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 .banner .search-form {
   display: inline-block;
@@ -131,6 +133,7 @@ body {
   margin: 0px;
   height: 44px;
   width: 100%;
+  min-width: 0px;
 }
 .banner .select2-container {
   width: 100% !important;
