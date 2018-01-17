@@ -15,10 +15,12 @@ class Login extends Component {
     $.material.init();
     $('#nav-main').addClass('navbar-transparent');
     $('body').addClass('login-background');
+    $('.footer').addClass('footer-transparent');
   }
   componentWillUnmount() {
     $('#nav-main').removeClass('navbar-transparent');
     $('body').removeClass('login-background');
+    $('.footer').removeClass('footer-transparent');
   }
   render() {
     return(

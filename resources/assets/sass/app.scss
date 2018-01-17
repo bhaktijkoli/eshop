@@ -23,16 +23,21 @@ body, html {
 body {
   background-color: #FAFAFA;
 }
+#app {
+  min-height: 100%;
+}
 .content-wrapper {
   margin-top: 80px;
   margin-bottom: 100px;
 }
 .content-wrapper-search {
   margin-top: 10px;
+  margin-bottom: 50px;
 }
 .nopadding {
   padding: 0px !important;
 }
+
 // CARD
 .card {
   display: block;
@@ -76,6 +81,20 @@ body {
   @extend .z-depth-1;
 }
 // FOOTER
+.footer {
+  background: #212121;
+  color: white;
+  height: auto;
+  width: 100%;
+  margin-top: -50px;
+  padding: 0px !important;
+}
+.footer-transparent {
+  background: transparent;
+}
+.footer ul li a {
+  cursor: pointer;
+}
 // BANNER
 .banner {
   background: url('img/banner.jpg') center center no-repeat;
@@ -219,11 +238,11 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.item .footer {
+.item .item-footer {
   display: block;
   margin-top: -10px;
 }
-.item .footer .action {
+.item .item-footer .action {
   float: right;
   margin-top: -10px;
   margin-bottom: -20px;

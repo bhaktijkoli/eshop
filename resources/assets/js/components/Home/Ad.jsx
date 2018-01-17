@@ -28,7 +28,7 @@ class Ad extends Component {
             <h4><Link to={this.getUrl()} className="title">{this.props.title}</Link> <span className="label label-primary">{this.props.category}</span></h4>
             <p className="content-body">{this.props.description}</p>
             <hr/>
-            <div className="footer">
+            <div className="item-footer">
               <small><i className="fa fa-clock-o" aria-hidden="true">&nbsp;</i>{this.props.datetime}</small>
               <div className="action">
                 <a onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-xs btn-round btn-fav":"btn btn-xs btn-round btn-white"}><i className={this.state.favorite==1?"fa fa-heart":"fa fa-heart-o"} aria-hidden="true"></i></a>

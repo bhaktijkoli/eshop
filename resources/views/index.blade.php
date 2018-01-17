@@ -11,6 +11,20 @@
 </head>
 <body>
   <div id="app"></div>
+  <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li data-to="/help"><a>Help</a></li>
+          <li data-to="/about"><a>About</a></li>
+          <li data-to="/terms-of-service"><a>Terms of Service</a></li>
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+        &copy; 2018, made with <i class="fa fa-heart heart"></i>
+      </div>
+    </div>
+  </footer>
   <script src="{{asset('js/app.js')}}" ></script>
 </body>
 </html>

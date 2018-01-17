@@ -3,7 +3,6 @@ import { Route, withRouter  } from 'react-router-dom';
 import { connect } from "react-redux"
 
 import Header from './Header/Header.jsx';
-import Footer from './Footer/Footer.jsx';
 import Home from './Home/Home.jsx';
 import NewAd from './NewAd/NewAd.jsx';
 import AdDetails from './AdDetails/AdDetails.jsx';
@@ -25,6 +24,7 @@ class Layout extends Component {
     super(props);
     getAuthUser(this.props)
     getCategories(this.props)
+    this.loadFunctions()
   }
   render() {
     if(this.props.auth.loading == true) {
@@ -47,10 +47,16 @@ class Layout extends Component {
             <Route exact path="/user/resetpassword" component={ResetPassword}/>
             <Route exact path="/ad/:adurl" component={AdDetails}/>
             <Route exact path="/user/:url" component={User}/>
-          <Footer />
         </div>
       )
     }
+  }
+  loadFunctions()
+  {
+    var comp = this;
+    $('[data-to]').click(function(event) {
+      comp.props.history.push($(this).attr('data-to'));
+    });
   }
 }
 

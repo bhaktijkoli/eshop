@@ -54489,19 +54489,18 @@ var withRouter = function withRouter(Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Header_Header_jsx__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Footer_Footer_jsx__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Home_Home_jsx__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__NewAd_NewAd_jsx__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__AdDetails_AdDetails_jsx__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Login_Login_jsx__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__User_User_jsx__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Register_Register_jsx__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Login_ForgotPassword_jsx__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Login_ResetPassword_jsx__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Tips_Tips_jsx__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Spinner_jsx__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__actions_authActions__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__actions_categoryActions__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Home_Home_jsx__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__NewAd_NewAd_jsx__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__AdDetails_AdDetails_jsx__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Login_Login_jsx__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__User_User_jsx__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__Register_Register_jsx__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Login_ForgotPassword_jsx__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__Login_ResetPassword_jsx__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Tips_Tips_jsx__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Spinner_jsx__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__actions_authActions__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__actions_categoryActions__ = __webpack_require__(344);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -54509,7 +54508,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 
 
 
@@ -54540,8 +54538,9 @@ var Layout = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-    Object(__WEBPACK_IMPORTED_MODULE_15__actions_authActions__["a" /* getAuthUser */])(_this.props);
-    Object(__WEBPACK_IMPORTED_MODULE_16__actions_categoryActions__["a" /* getCategories */])(_this.props);
+    Object(__WEBPACK_IMPORTED_MODULE_14__actions_authActions__["a" /* getAuthUser */])(_this.props);
+    Object(__WEBPACK_IMPORTED_MODULE_15__actions_categoryActions__["a" /* getCategories */])(_this.props);
+    _this.loadFunctions();
     return _this;
   }
 
@@ -54552,25 +54551,32 @@ var Layout = function (_Component) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { style: { marginTop: '20%' } },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_14__Spinner_jsx__["a" /* default */], null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_13__Spinner_jsx__["a" /* default */], null)
         );
       } else {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'wrapper' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Header_Header_jsx__["a" /* default */], null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_5__Home_Home_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/tips', component: __WEBPACK_IMPORTED_MODULE_13__Tips_Tips_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/new-ad', component: __WEBPACK_IMPORTED_MODULE_6__NewAd_NewAd_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/login', component: __WEBPACK_IMPORTED_MODULE_8__Login_Login_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/register', component: __WEBPACK_IMPORTED_MODULE_10__Register_Register_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/forgotpassword', component: __WEBPACK_IMPORTED_MODULE_11__Login_ForgotPassword_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/user/resetpassword', component: __WEBPACK_IMPORTED_MODULE_12__Login_ResetPassword_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/ad/:adurl', component: __WEBPACK_IMPORTED_MODULE_7__AdDetails_AdDetails_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/user/:url', component: __WEBPACK_IMPORTED_MODULE_9__User_User_jsx__["a" /* default */] }),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Footer_Footer_jsx__["a" /* default */], null)
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/', component: __WEBPACK_IMPORTED_MODULE_4__Home_Home_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/tips', component: __WEBPACK_IMPORTED_MODULE_12__Tips_Tips_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/new-ad', component: __WEBPACK_IMPORTED_MODULE_5__NewAd_NewAd_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/login', component: __WEBPACK_IMPORTED_MODULE_7__Login_Login_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/register', component: __WEBPACK_IMPORTED_MODULE_9__Register_Register_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/forgotpassword', component: __WEBPACK_IMPORTED_MODULE_10__Login_ForgotPassword_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/user/resetpassword', component: __WEBPACK_IMPORTED_MODULE_11__Login_ResetPassword_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/ad/:adurl', component: __WEBPACK_IMPORTED_MODULE_6__AdDetails_AdDetails_jsx__["a" /* default */] }),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Route */], { exact: true, path: '/user/:url', component: __WEBPACK_IMPORTED_MODULE_8__User_User_jsx__["a" /* default */] })
         );
       }
+    }
+  }, {
+    key: 'loadFunctions',
+    value: function loadFunctions() {
+      var comp = this;
+      $('[data-to]').click(function (event) {
+        comp.props.history.push($(this).attr('data-to'));
+      });
     }
   }]);
 
@@ -56031,46 +56037,7 @@ function mapStateToProps(state) {
 /* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["b" /* connect */])(mapStateToProps)(UserDropDown)));
 
 /***/ }),
-/* 312 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(3);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-var Footer = function (_Component) {
-  _inherits(Footer, _Component);
-
-  function Footer() {
-    _classCallCheck(this, Footer);
-
-    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
-  }
-
-  _createClass(Footer, [{
-    key: 'render',
-    value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'footer' });
-    }
-  }]);
-
-  return Footer;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["d" /* withRouter */])(Footer));
-
-/***/ }),
+/* 312 */,
 /* 313 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56529,7 +56496,7 @@ var Ad = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'div',
-              { className: 'footer' },
+              { className: 'item-footer' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'small',
                 null,
@@ -57966,12 +57933,14 @@ var Login = function (_Component) {
       $.material.init();
       $('#nav-main').addClass('navbar-transparent');
       $('body').addClass('login-background');
+      $('.footer').addClass('footer-transparent');
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       $('#nav-main').removeClass('navbar-transparent');
       $('body').removeClass('login-background');
+      $('.footer').removeClass('footer-transparent');
     }
   }, {
     key: 'render',
