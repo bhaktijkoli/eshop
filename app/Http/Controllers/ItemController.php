@@ -22,7 +22,7 @@ class ItemController extends Controller
   public function get(Request $request) {
     $category = $request->input('category',"-1");
     $search = $request->input('search',"");
-    $query = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('pending','1');
+    $query = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('pending','0');
     $query = $query->where("title",'like',"%$search%");
     $query = $category==-1?$query:$query->where('category',$category);
     $items = $query->get();
@@ -52,7 +52,7 @@ class ItemController extends Controller
     $item->negotiable = $negotiable;
     $item->url = str_replace(' ', '-',$title) .'-'. uniqid();
     $item->url = strtolower($item->url);
-    $item->pending = '0';
+    $item->pending = '1';
     $item->save();
 
     ItemImage::newImage($request->image1,$item->user_id, $item->id,1);
@@ -64,8 +64,12 @@ class ItemController extends Controller
   }
 
   public function getItem($url) {
-    $item = Item::select("id",'user_id',"title","description","price","negotiable","category","url","created_at")->where('pending','1')->where('url',$url)->first();
+    $item = Item::select("id",'user_id',"title","description","price","pending","negotiable","category","url","created_at")->where('url',$url)->first();
     if(!$item) return "";
+    if($item->pending) {
+      if(!Auth::check()) return "";
+      if(Auth::user()->id != $item->user_id) return "";
+    }
     $item->formatResponse();
     $imagesAll = ItemImage::where('item_id',$item->id)->get();
     $images = [];
@@ -83,7 +87,7 @@ class ItemController extends Controller
   }
 
   public function getUserItems(Request $request) {
-    $pending = $request->input('pending','1');
+    $pending = $request->input('pending','0');
     $items = Item::select("id","title","description","price","negotiable","category","url","created_at")->where('pending', $pending)->where('user_id', Auth::user()->id)->get();
     $no=1;
     foreach ($items as &$item) {

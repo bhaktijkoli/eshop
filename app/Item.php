@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+use Auth;
 use App\User;
 use App\ItemImage;
 use App\Category;
@@ -27,6 +28,7 @@ class Item extends Model
     $this['favorite'] = 1;
     else
     $this['favorite'] = 0;
+    $this['owner'] = Auth::user()->id==$this->user_id?1:0;
   }
 
 }

@@ -57391,6 +57391,7 @@ var AdAbout = function (_Component) {
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
         ),
+        this.printPending(),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__AdCarousel__["a" /* default */], { images: item.images }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
@@ -57436,6 +57437,29 @@ var AdAbout = function (_Component) {
       } else {
         return "";
       }
+    }
+  }, {
+    key: 'printPending',
+    value: function printPending() {
+      if (this.props.item.pending == 1) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'alert alert-info' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'container-fluid' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'alert-icon' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'i',
+              { className: 'material-icons' },
+              'info_outline'
+            )
+          ),
+          'Approval Pending!'
+        )
+      );
+      return "";
     }
   }]);
 
@@ -57601,7 +57625,30 @@ var AdSeller = function (_Component) {
           )
         );
       } else {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        if (this.props.item.owner == 1) return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'div',
+          { className: 'card' },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'card-heading' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h3',
+              { className: 'card-title' },
+              'Manage Ad'
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'card-body nopadding' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { to: this.props.item.pending == 1 ? "/user/pending" : "/user/ads", className: 'btn btn-primary btn-block' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-cog', 'aria-hidden': 'true' }),
+              '\xA0\xA0Manage'
+            )
+          )
+        );else return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'div',
           { className: 'card' },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -58809,7 +58856,7 @@ var Pending = function (_Component) {
   _createClass(Pending, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      axios.get('/api/user/get/ads?pending=0').then(function (response) {
+      axios.get('/api/user/get/ads?pending=1').then(function (response) {
         this.setState({ list: response.data });
       }.bind(this));
     }

@@ -14,37 +14,50 @@ class AdSeller extends Component {
     if(this.props.auth.check == 0) {
       return(
         <div className="card">
-          <div className="card-heading">
-            <h3 className="card-title">Contact seller</h3>
-            <hr/>
-          </div>
-          <div className="card-body nopadding">
-            <Link to="/login" className="btn btn-primary btn-block"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</Link>
-          </div>
+        <div className="card-heading">
+        <h3 className="card-title">Contact seller</h3>
+        <hr/>
+        </div>
+        <div className="card-body nopadding">
+        <Link to="/login" className="btn btn-primary btn-block"><i className="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</Link>
+        </div>
         </div>
       );
     }
     else {
+      if(this.props.item.owner == 1)
       return(
         <div className="card">
-          <div className="card-heading">
-            <h3 className="card-title">Contact seller</h3>
-            <hr/>
-          </div>
-          <div className="card-body nopadding">
-            <div className="media">
-              <div className="media-left media-top">
-                <img src={seller.avatar} className="media-object img-circle" style={{width:'60px'}}/>
-              </div>
-              <div className="media-body">
-                <h5 className="media-heading">{seller.name}</h5>
-                <small>Member since {seller.datetime}</small>
-              </div>
-              <button className="btn btn-primary btn-block" data-toggle="modal" data-target="#modelMessage"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
-              <button onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-block btn-fav":"btn btn-block btn-primary"}><i className={this.state.favorite==1?"fa fa-heart":"fa fa-heart-o"} aria-hidden="true"></i>&nbsp;&nbsp;Favorites</button>
-              <AdMessage id="modelMessage" item={this.props.item}/>
-            </div>
-          </div>
+        <div className="card-heading">
+        <h3 className="card-title">Manage Ad</h3>
+        <hr/>
+        </div>
+        <div className="card-body nopadding">
+        <Link to={this.props.item.pending==1?"/user/pending":"/user/ads"} className="btn btn-primary btn-block"><i className="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;Manage</Link>
+        </div>
+        </div>
+      )
+      else
+      return(
+        <div className="card">
+        <div className="card-heading">
+        <h3 className="card-title">Contact seller</h3>
+        <hr/>
+        </div>
+        <div className="card-body nopadding">
+        <div className="media">
+        <div className="media-left media-top">
+        <img src={seller.avatar} className="media-object img-circle" style={{width:'60px'}}/>
+        </div>
+        <div className="media-body">
+        <h5 className="media-heading">{seller.name}</h5>
+        <small>Member since {seller.datetime}</small>
+        </div>
+        <button className="btn btn-primary btn-block" data-toggle="modal" data-target="#modelMessage"><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;Message</button>
+        <button onClick={this.handleFavorite.bind(this)} className={this.state.favorite==1?"btn btn-block btn-fav":"btn btn-block btn-primary"}><i className={this.state.favorite==1?"fa fa-heart":"fa fa-heart-o"} aria-hidden="true"></i>&nbsp;&nbsp;Favorites</button>
+        <AdMessage id="modelMessage" item={this.props.item}/>
+        </div>
+        </div>
         </div>
       );
     }

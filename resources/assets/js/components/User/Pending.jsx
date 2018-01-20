@@ -9,7 +9,7 @@ class Pending extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/api/user/get/ads?pending=0')
+    axios.get('/api/user/get/ads?pending=1')
     .then(function (response) {
       this.setState({list:response.data});
     }.bind(this));
