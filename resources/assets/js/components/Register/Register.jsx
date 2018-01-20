@@ -17,20 +17,22 @@ class Login extends Component {
     $.material.init();
     $('#nav-main').addClass('navbar-transparent');
     $('body').addClass('login-background');
+    $('.footer').addClass('footer-transparent');
   }
   componentWillUnmount() {
     $('#nav-main').removeClass('navbar-transparent');
     $('body').removeClass('login-background');
+    $('.footer').removeClass('footer-transparent');
   }
   render() {
     return(
       <div className="container login-content">
-        <div className="filter"></div>
-        <div className="row">
-          <div className="col-sm-4 col-sm-offset-4">
-            <FormRegister />
-          </div>
-        </div>
+      <div className="filter"></div>
+      <div className="row">
+      <div className="col-sm-4 col-sm-offset-4">
+      <FormRegister />
+      </div>
+      </div>
       </div>
     )
   }

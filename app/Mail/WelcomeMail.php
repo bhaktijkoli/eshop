@@ -8,25 +8,22 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 use App\User;
-use App\EmailVerification;
 
-class RegisterMail extends Mailable
+class WelcomeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Registration";
+    public $subject = "Welcome";
     public $user;
-    public $ev;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, EmailVerification $ev)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->ev = $ev;
     }
 
     /**
@@ -36,6 +33,6 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.register');
+        return $this->view('mails.welcome');
     }
 }

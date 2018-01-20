@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/logout', 'Auth\Logincontroller@logout');
+Route::get('/user/verify', 'Auth\RegisterController@verify');
+Route::get('/user/resetpassword', 'Auth\ResetPasswordController@resetpassword');
+
+Route::get('/login/{provider}', 'Auth\SocialLoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'Auth\SocialLoginController@handleProviderCallback');
+
 Route::view('/', 'index')->name('home');
 Route::view('/new-ad', 'index');
 Route::view('/ad/{adurl}', 'index');
@@ -19,13 +26,6 @@ Route::view('/register', 'index');
 Route::view('/forgotpassword', 'index');
 Route::view('/user/{settings}', 'index');
 Route::view('/tips', 'index');
-
-Route::get('/logout', 'Auth\Logincontroller@logout');
-Route::get('/user/verify', 'Auth\RegisterController@verify');
-Route::get('/user/resetpassword', 'Auth\ResetPasswordController@resetpassword');
-
-Route::get('/login/{provider}', 'Auth\SocialLoginController@redirectToProvider');
-Route::get('/login/{provider}/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
 
 Route::prefix('api')->group(function () {

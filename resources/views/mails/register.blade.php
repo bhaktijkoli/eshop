@@ -11,6 +11,7 @@
      <br />
       To verify your email address, click on the button bellow.
       <br />
+      <br />
       <a href="{{url("/user/verify?id=$ev->tokenid&token=$ev->token")}}" class="btn btn-primary" style="width:100px;">Verify</a>
   </p>
   <br />

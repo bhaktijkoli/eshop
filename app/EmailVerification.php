@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
 use App\User;
+use App\EmailVerification;
 
 class EmailVerification extends Model
 {
@@ -32,7 +33,7 @@ class EmailVerification extends Model
   }
 
   public static function verify($id, $token) {
-    $ev = Self::where('tokenid',$id)->first();
+    $ev = EmailVerification::where('tokenid',$id)->first();
     if($ev) {
       if($ev->token == $token) {
         $user = User::where('id',$ev->userid)->first();
@@ -40,7 +41,7 @@ class EmailVerification extends Model
         $user->access = "1";
         $user->save();
         $ev->forceDelete();
-        return true;
+        return $user;
       }
       $ev->times++;
       $ev->save();

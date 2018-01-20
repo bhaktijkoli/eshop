@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>@yield('title')</title>
-  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/3/paper/bootstrap.min.css">
+  {{-- @include('mails.style-default') --}}
+  @include('mails.style')
 </head>
 <body>
-  <div class="navbar navbar-inverse navbar-static-top">
-    <div class="container">
-      <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
+  <div id="wrapper">
+    <div id="header" class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    @yield('content')
-  </div>
-  <footer class="footer_wrapper navbar-inverse modal-footer">
-    <div class="container">
-      <p class="navbar-text pull-left">Copyright @ Eshop</p>
+    <div id="content">
+      <div class="container">
+        @yield('content')
+      </div>
     </div>
-  </footer>
+    <footer id="footer">
+      <div class="container">
+        <p>Copyright @ Eshop</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

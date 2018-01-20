@@ -15,12 +15,13 @@ use FlashMessage;
 use App\Http\Requests\RegisterRequest;
 
 use App\Notifications\RegisterNotification;
+use App\Notifications\WelcomeNotification;
 
 class RegisterController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('guest');
+    // $this->middleware('guest');
   }
 
   public function register(RegisterRequest $request)
@@ -38,8 +39,10 @@ class RegisterController extends Controller
   {
     $id = $request->input("id");
     $token = $request->input("token");
-    if(EmailVerification::verify($id, $token)) {
+    $user = EmailVerification::verify($id, $token);
+    if($user) {
       FlashMessage::make("success","Your email has been verified you can now login to your account.");
+      $user->notify(new WelcomeNotification($user));
       return redirect('/login');
     }
     return redirect('/');
