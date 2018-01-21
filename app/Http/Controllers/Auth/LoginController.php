@@ -55,6 +55,13 @@ class LoginController extends Controller
     }
   }
 
+  protected function credentials(Request $request)
+  {
+    $credentials = $request->only($this->username(), 'password');
+    $credentials['active'] = '1';
+    return $credentials;
+  }
+
   protected function authenticated(Request $request, $user)
   {
     return ResponseBuilder::send(true, "", "");
@@ -67,10 +74,10 @@ class LoginController extends Controller
 
   protected function sendLockoutResponse(Request $request)
   {
-      $seconds = $this->limiter()->availableIn(
-          $this->throttleKey($request)
-      );
+    $seconds = $this->limiter()->availableIn(
+      $this->throttleKey($request)
+    );
 
-      return ResponseBuilder::send(false, trans('auth.throttle', ['seconds' => $seconds]) ,"");
+    return ResponseBuilder::send(false, trans('auth.throttle', ['seconds' => $seconds]) ,"");
   }
 }

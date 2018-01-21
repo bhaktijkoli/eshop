@@ -14,7 +14,7 @@ class RegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Registration";
+    public $subject = "Verify your email";
     public $user;
     public $ev;
 

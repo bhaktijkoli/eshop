@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->enum('access', [0,1,2])->default(0);
+            $table->enum('active',[-1,0,1])->default(0);
             $table->string('avatar')->nullable();
             $table->string('facebook')->nullable();
             $table->string('google')->nullable();

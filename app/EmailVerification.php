@@ -38,7 +38,7 @@ class EmailVerification extends Model
       if($ev->token == $token) {
         $user = User::where('id',$ev->userid)->first();
         $user->email = $ev->email;
-        $user->access = "1";
+        $user->active = '1';
         $user->save();
         $ev->forceDelete();
         return $user;
