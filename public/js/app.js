@@ -57184,27 +57184,22 @@ var QuickSellTips = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Use a brief title and description of the item'
+              'Add a title, appropriate to the product.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Make sure you post in the correct category'
+              'Add a suitable description, covering the much of the details about the product.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Add nice photos to your ad'
+              'Select a suitable category of your product.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Put a reasonable price'
-            ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'li',
-              null,
-              'Check the item before publish'
+              'Add an appropriate price to the product.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
@@ -57906,17 +57901,17 @@ var AdBuyerTips = function (_Component) {
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Meet seller at a public place'
+              'Meet the seller inside the campus and inspect the item carefully.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Check the item before you buy'
+              'The best way to transact is to collect the item and pay at the same time.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               'li',
               null,
-              'Pay only after collecting the item'
+              'Always insist on getting clear information about the various aspects of the item.'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
@@ -60057,17 +60052,32 @@ var Tips = function (_Component) {
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Meet seller at a public place'
+                    'Meet the seller inside the campus and inspect the item carefully, before purchasing, to keep yourself away from any of the frauds.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Check the item before you buy'
+                    'The best way to transact is to collect the item and pay at the same time. Try not to schedule the payments for later.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Pay only after collecting the item'
+                    'Always insist on getting clear information about the various aspects of the item, you are going to buy. For example, condition of the item, usage period of the item, etc.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Always transact in a way, you feel is the best suitable for you. Never ever, give out your financial information. It may be too risky to do so.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Always purchase the item, directly from the seller and make sure, that no third person is involved in between, who may cost you extra charges.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Do proper research and always compare the prices and features of the product, you wish to buy. Get the best for yourself.'
                   )
                 )
               )
@@ -60098,27 +60108,52 @@ var Tips = function (_Component) {
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Use a brief title and description of the item'
+                    'Add a title, appropriate to the product which you wish to put on sale. It should cover the gist of the description.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Make sure you post in the correct category'
+                    'Add a suitable description, covering the much of the details about the product, which you wish to sell. For instance, \u201CIs the product first hand or second hand?\u201D, \u201CFor how long the product is used, before it is sold here?\u201D, etc.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Add nice photos to your ad'
+                    'Select a suitable category of your product. Don\u2019t miscategorise the product, you wish to sell.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Put a reasonable price'
+                    'Add an appropriate price to the product you wish to sell, and select wisely, if you wish to keep it negotiable or not.'
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'li',
                     null,
-                    'Check the item before publish'
+                    'Add upto 4 images, which gives proper description about the product you wish to sell. Make sure that the images uploaded are not of poor quality, and are recognisable enough to buyers.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Special care has to be taken while uploading the first image, as it will be the image featuring the product you wish to sell. Please do take care of not uploading images of poor quality.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Image size must be around 1MB and must be of decent quality, enough to give a perception about the product you wish to sell.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Before submitting, make sure to accept all the terms and conditions of the Eshop, so that you can submit the advertisement of the product you wish to sell.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Once you hit the submit button, just sit back and relax. Your advertisement will be verified by one of our executives and then, it will proceed to the website, visible to all the buyers around.'
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'li',
+                    null,
+                    'Make sure to enter all the details properly and precisely, as every advertisement will undergo a verification before getting posted. If it violates any of the Terms and Conditions, it won\u2019t proceed to get posted. Hence, make sure to read all the details carefully.'
                   )
                 )
               )

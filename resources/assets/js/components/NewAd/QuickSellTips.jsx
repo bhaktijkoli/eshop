@@ -13,11 +13,10 @@ class QuickSellTips extends Component {
         </div>
         <div className="card-body">
           <ul className="list">
-            <li>Use a brief title and description of the item</li>
-            <li>Make sure you post in the correct category</li>
-            <li>Add nice photos to your ad</li>
-            <li>Put a reasonable price</li>
-            <li>Check the item before publish</li>
+            <li>Add a title, appropriate to the product.</li>
+            <li>Add a suitable description, covering the much of the details about the product.</li>
+            <li>Select a suitable category of your product.</li>
+            <li>Add an appropriate price to the product.</li>
             <Link to="/tips">Read more..</Link>
           </ul>
         </div>

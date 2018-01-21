@@ -14,9 +14,9 @@ class AdBuyerTips extends Component {
         </div>
         <div className="card-body">
           <ul className="list">
-            <li>Meet seller at a public place</li>
-            <li>Check the item before you buy</li>
-            <li>Pay only after collecting the item</li>
+            <li>Meet the seller inside the campus and inspect the item carefully.</li>
+            <li>The best way to transact is to collect the item and pay at the same time.</li>
+            <li>Always insist on getting clear information about the various aspects of the item.</li>
             <Link to="/tips">Read more..</Link>
           </ul>
         </div>
