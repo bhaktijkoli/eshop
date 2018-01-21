@@ -24,3 +24,4 @@ require('./scripts/formhandler');
 require('./scripts/modal');
 require('./scripts/jquery.validate');
 require('./scripts/jquery.fancybox');
+require('./scripts/jasny-bootstrap');

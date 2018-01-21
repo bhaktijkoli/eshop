@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { connect } from "react-redux"
+
 
 class UserDropDown extends Component {
   render() {
@@ -41,10 +41,4 @@ class UserDropDown extends Component {
     alert("error !");
   }
 }
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-  };
-}
-
-export default withRouter(connect(mapStateToProps)(UserDropDown));
+export default withRouter(UserDropDown);
