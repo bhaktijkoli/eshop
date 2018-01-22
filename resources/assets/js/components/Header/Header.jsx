@@ -15,12 +15,7 @@ class Header extends Component {
         <nav id="nav-main" className="navbar navbar-default navbar-fixed-top" role="navigation">
           <div className="container">
             <div className="navbar-header">
-              <button type="button" className="navbar-toggle pull-left" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
+      {this.getNavbarToggle()}
               <Link className="navbar-brand" to="/">Eshop</Link>
             </div>
 
@@ -39,6 +34,21 @@ class Header extends Component {
     }
     else {
       return "";
+    }
+  }
+  getNavbarToggle() {
+    if(this.props.auth.check == 1) {
+      return(
+        <button type="button" className="navbar-toggle pull-left" data-toggle="offcanvas" data-target="#mob-menu" data-canvas="body">
+          <span className="sr-only">Toggle navigation</span>
+          <span className="icon-bar"></span>
+          <span className="icon-bar"></span>
+          <span className="icon-bar"></span>
+        </button>
+      );
+    }
+    else {
+      return(<Link to="/login" className="mob-nav-btn"><i className="fa fa-sign-in" aria-hidden="true"></i></Link>);
     }
   }
 }
