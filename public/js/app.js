@@ -33382,7 +33382,7 @@ window.modal = {
   showModalDefault: function showModalDefault(title, message, button) {
     var callback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "";
 
-    $('body').append('<div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n    <div class="modal-content">\n    <div class="modal-header">\n    <button type="button" class="close" data-dismiss="modal">&times;</button>\n    <h4 class="modal-title">' + title + '</h4>\n    <hr>\n    </div>\n    <div class="modal-body">\n    ' + message + '\n    </div>\n    <div class="modal-footer">\n    <button type="button" class="btn btn-primary" data-dismiss="modal">' + button + '</button>\n    </div>\n    </div>\n    </div>\n    </div>');
+    $('body').append('<div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n      <div class="modal-content">\n        <div class="modal-header">\n          <button type="button" class="close" data-dismiss="modal">&times;</button>\n          <h4 class="modal-title">' + title + '</h4>\n          <hr>\n          </div>\n          <div class="modal-body">\n            ' + message + '\n          </div>\n          <div class="modal-footer">\n            <button type="button" class="btn btn-primary" data-dismiss="modal">' + button + '</button>\n          </div>\n        </div>\n      </div>\n    </div>');
     $('#dynamicDefaultModal').modal();
     $("#dynamicDefaultModal").on('hidden.bs.modal', function () {
       $('#dynamicDefaultModal').remove();
@@ -33392,7 +33392,7 @@ window.modal = {
   showModelYesNo: function showModelYesNo(title, message) {
     var callback = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
 
-    $("body").append('  <div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n    <div class="modal-content">\n    <div class="modal-header">\n    <button type="button" class="close" data-dismiss="modal">&times;</button>\n    <h4 class="modal-title">' + title + '</h4>\n    </div>\n    <div class="modal-body">\n    ' + message + '\n    </div>\n    <div class="modal-footer">\n    <button type="button" class="btn btn-primary" id="modalYes">Yes</button>\n    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>\n    </div>\n    </div>\n    </div>\n    </div>');
+    $("body").append('  <div class="modal fade" id="dynamicDefaultModal" role="dialog">\n    <div class="modal-dialog">\n      <div class="modal-content">\n        <div class="modal-header">\n          <button type="button" class="close" data-dismiss="modal">&times;</button>\n          <h4 class="modal-title">' + title + '</h4>\n        </div>\n        <div class="modal-body">\n          ' + message + '\n        </div>\n        <div class="modal-footer">\n          <button type="button" class="btn btn-primary" id="modalYes">Yes</button>\n          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>\n        </div>\n      </div>\n    </div>\n  </div>');
     $('#dynamicDefaultModal').modal();
     $('#dynamicDefaultModal #modalYes').click(function (event) {
       $('#dynamicDefaultModal').modal("hide");
@@ -33405,12 +33405,25 @@ window.modal = {
   showPasswordModal: function showPasswordModal() {
     var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
 
-    $('body').append('<div class="modal fade" id="dynamicPasswordModal" role="dialog">\n    <div class="modal-dialog">\n    <div class="modal-content">\n    <div class="modal-header">\n    <button type="button" class="close" data-dismiss="modal">&times;</button>\n    <h4 class="modal-title">Enter your password</h4>\n    <hr>\n    </div>\n    <div class="modal-body">\n      <div class="form-group has-feedback">\n        <input type="password" class="form-control input-lg" id="dynamicPassword" placeholder="Password"/>\n        <i class="fa fa-lock form-control-feedback"></i>\n      </div>\n    </div>\n    <div class="modal-footer">\n    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>\n    </div>\n    </div>\n    </div>\n    </div>');
+    $('body').append('<div class="modal fade" id="dynamicPasswordModal" role="dialog">\n  <div class="modal-dialog">\n    <div class="modal-content">\n      <form id="dynamicPasswordForm">\n        <div class="modal-header">\n          <button type="button" class="close" data-dismiss="modal">&times;</button>\n          <h4 class="modal-title">Enter your password</h4>\n          <hr>\n          </div>\n          <div class="modal-body">\n            <div class="form-group has-feedback">\n              <input type="password" class="form-control input-lg" id="dynamicPassword" placeholder="Password"/>\n              <i class="fa fa-lock form-control-feedback"></i>\n              <p class="help-block"></p>\n            </div>\n          </div>\n          <div class="modal-footer">\n            <button type="submit" class="btn btn-primary">Ok</button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>');
     $('#dynamicPasswordModal').modal();
-    $("#dynamicPasswordModal").on('hidden.bs.modal', function () {
+    $('#dynamicPasswordForm').submit(function (event) {
+      event.preventDefault();
+      fh.hide_button();
       var password = $('#dynamicPassword').val();
+      axios.post('/api/user/confirm', { password: password }).then(function (response) {
+        var data = response.data;
+        fh.show_button();
+        if (fh.is_success(data)) {
+          $('#dynamicPasswordModal').modal("hide");
+          if (typeof callback == "function") callback();
+        } else fh.set_error("#dynamicPassword", data.messages);
+      }).catch(function (error) {
+        fh.show_errorpage(error);
+      });
+    });
+    $("#dynamicPasswordModal").on('hidden.bs.modal', function () {
       $('#dynamicPasswordModal').remove();
-      if (typeof callback == "function") callback();
     });
   }
 };

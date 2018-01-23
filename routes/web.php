@@ -49,6 +49,7 @@ Route::prefix('api')->group(function () {
   Route::get('/user/favorites/get','FavoriteController@get');
   Route::post('/user/favorite/toggle','FavoriteController@toggle');
 
+  Route::post('/user/confirm', 'UserController@checkPassword');
   Route::post('/user/update-email', 'UserController@updateEmail');
 });
 

@@ -10,6 +10,7 @@ use App\User;
 use App\EmailVerification;
 use App\ResponseBuilder;
 use Auth;
+use Hash;
 
 use App\Notifications\RegisterNotification;
 
@@ -26,6 +27,13 @@ class UserController extends Controller
       $user['datetime'] = Auth::user()->created_at->format('M j, Y');
     }
     return $user;
+  }
+  public function checkPassword(Request $request) {
+    $password = $request->input('password');
+    if(Hash::check($password, Auth::user()->password)) {
+      return ResponseBuilder::send(true,"","");
+    }
+    return ResponseBuilder::send(false,"The password you entered is incorrect.","");
   }
   public function updateEmail(UpdateEmailRequest $request) {
     $user = Auth::user();
