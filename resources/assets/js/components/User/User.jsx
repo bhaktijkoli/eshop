@@ -66,7 +66,7 @@ class User extends Component {
                   <Favorites/>
                 </div>
                 <div id="settings" className={this.getTabClassName('settings')}>
-                  <Settings/>
+                  <Settings auth={this.props.auth}/>
                 </div>
               </div>
             </div>

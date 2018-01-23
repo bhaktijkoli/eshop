@@ -7,7 +7,11 @@
   <br />
   <br />
   <p>
-     You or someone with your email address signed up at {{ config('app.name') }}. Your new account is almost ready, but before you can login you need to verify the ownership of this email address.
+    @if ($user->active == 0)
+      You or someone with your email address signed up at {{ config('app.name') }}. Your new account is almost ready, but before you can login you need to verify the ownership of this email address.
+    @else
+      
+    @endif
      <br />
       To verify your email address, click on the button bellow.
       <br />

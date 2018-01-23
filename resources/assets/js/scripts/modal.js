@@ -53,7 +53,33 @@ window.modal = {
       $('#dynamicDefaultModal').remove();
     });
   },
-  showSendModal: function() {
-
-  }
+  showPasswordModal: function(callback="") {
+    $('body').append(`<div class="modal fade" id="dynamicPasswordModal" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Enter your password</h4>
+    <hr>
+    </div>
+    <div class="modal-body">
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control input-lg" id="dynamicPassword" placeholder="Password"/>
+        <i class="fa fa-lock form-control-feedback"></i>
+      </div>
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+    </div>
+    </div>
+    </div>
+    </div>`);
+    $('#dynamicPasswordModal').modal();
+    $("#dynamicPasswordModal").on('hidden.bs.modal', function () {
+      var password = $('#dynamicPassword').val();
+      $('#dynamicPasswordModal').remove();
+      if(typeof callback == "function")
+      callback();
+    });
+  },
 }
